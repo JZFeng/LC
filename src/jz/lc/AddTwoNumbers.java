@@ -19,12 +19,66 @@ public class AddTwoNumbers
 
     public static void main(String[] args)
     {
+        
 
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2)
     {
-        return l2;
+        int size1 = ListNode.size(l1);
+        int size2 = ListNode.size(l2);
+        ListNode longer = (size1 >= size2) ? l1 : l2;
+        ListNode res = longer;
+        ListNode shorter = (longer == l1) ? l2 : l1;
+        boolean isUp = false;
+
+        while (shorter != null)
+        {
+            longer.val = shorter.val + longer.val;
+            if (isUp)
+            {
+                longer.val++;
+            }
+
+            if (longer.val >= 10)
+            {
+                isUp = true;
+                longer.val = longer.val % 10;
+            }
+            shorter = shorter.next;
+            longer = longer.next;
+        }
+
+        while (longer != null && longer.next != null)
+        {
+            if (isUp)
+                longer.val++;
+
+            if (longer.val >= 10)
+            {
+                longer.val = longer.val % 10;
+                isUp = true;
+                longer = longer.next;
+            }
+            else
+            {
+                return res;
+            }
+        }
+
+        if (longer != null)
+        {
+            if (isUp)
+                longer.val++;
+            if (longer.val >= 10)
+            {
+                longer.val = longer.val % 10;
+                longer.next = new ListNode(1);
+            }
+
+        }
+
+        return res;
     }
 
 }
