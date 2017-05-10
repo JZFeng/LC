@@ -1,12 +1,27 @@
 package jz.LinkedList;
 
 public class ListNode {
-	int val;
-	ListNode next;
+	public int val;
+	public ListNode next;
 	
-	ListNode(int x)
+	public ListNode(int x)
 	{
 		this.val = x;
+	}
+	
+	public static int size(ListNode head)
+	{
+		if(head == null)
+			return 0;
+		
+		int size = 0;
+		while(head != null)
+		{
+			size++;
+			head = head.next;
+		}
+		
+		return size;
 	}
 	
 	public static ListNode listfromArray(int[] a)
@@ -38,6 +53,7 @@ public class ListNode {
 		}
 		System.out.println();
 	}
+	
 	
 	public static void main(String[] args)
 	{
