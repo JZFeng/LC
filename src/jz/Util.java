@@ -11,139 +11,130 @@ public class Util
     public static void main(String[] args) throws IOException
     {
         Random r = new Random();
-        int size = 1+r.nextInt(10);
+        int size = 1 + r.nextInt(10);
         int[] a = new int[size];
         for (int i = 0; i < a.length; i++)
         {
             a[i] = r.nextInt(20);
         }
-        
-        
+
         int[] b = Arrays.copyOf(a, size);
-        
+
         System.out.println("Originl Arrays: ");
         printArray(a);
         printArray(b);
 
-       System.out.println("Sorted Arrays: ");
-       Arrays.sort(b);
-       printArray(b);
+        System.out.println("Sorted Arrays: ");
+        Arrays.sort(b);
+        printArray(b);
 
-       quickSort(a, 0, size-1);
-       printArray(a);
-       System.out.println(isEqual(a,b));
-        
-        
-        
+        quickSort(a, 0, size - 1);
+        printArray(a);
+        System.out.println(isEqual(a, b));
+
     }
-    
-    
-    
+
     public static void quickSort(int[] a, int low, int high)
     {
-        if(a == null || a.length == 0)
+        if (a == null || a.length == 0)
             return;
-        
-        if(low <= high)
+
+        if (low <= high)
         {
-            int q = partition(a,low,high);
-            if(low < q)
-                quickSort(a, low, q-1);
-                
-            if(high > q)
-                quickSort(a, q+1, high);
+            int q = partition(a, low, high);
+            if (low < q)
+                quickSort(a, low, q - 1);
+
+            if (high > q)
+                quickSort(a, q + 1, high);
         }
     }
-   
+
     public static int partition(int[] a, int left, int right)
     {
         int i = left;
         int j = right;
         int pivot = a[i];
-        
-        while(i<j)
+
+        while (i < j)
         {
-            while(a[i] < pivot) i++;
-            while(a[j] > pivot) j--;
-            
-            if(i<j)
+            while (a[i] < pivot)
+                i++;
+            while (a[j] > pivot)
+                j--;
+
+            if (i < j)
             {
-                exchange(a,i,j);
-                
-                if(a[i] == a[j])
+                exchange(a, i, j);
+
+                if (a[i] == a[j])
                     i++;
             }
         }
-       
+
         return i;
     }
-    
-    
-    
-    
+
     public static boolean isEqual(int[] a, int[] b)
     {
-        if(a == null && b == null)
+        if (a == null && b == null)
             return true;
-        if(a.length != b.length)
+        if (a.length != b.length)
             return false;
-        
+
         for (int i = 0; i < a.length; i++)
         {
-            if(a[i] != b[i])
+            if (a[i] != b[i])
                 return false;
         }
-         
+
         return true;
     }
-    
-  
-    
+
     public static void exchange(int[] a, int i, int j)
     {
         int tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
-    
-    
+
     public static void getACard(int n)
     {
-        if(n < 1)
-            System.exit(1);;
-        
+        if (n < 1)
+            System.exit(1);
+        ;
+
         int[] a = new int[n];
         int size = n;
-        
+
         for (int i = 0; i < n; i++)
         {
             a[i] = i;
         }
-        
+
         printArray(a);
-        
+
         StringBuilder sb = new StringBuilder();
         sb.append("cards delivered: ");
-        
+
         Random rd = new Random();
-        
+
         for (int i = 0; i < 10; i++)
         {
-             int x =rd.nextInt(size);
-             int tmp = a[x];
-             sb.append( tmp + " ");
-             a[x] = a[size -1];
-             a[size - 1] = tmp;
-             
-            
+            int x = rd.nextInt(size);
+            int tmp = a[x];
+            sb.append(tmp + " ");
+            a[x] = a[size - 1];
+            a[size - 1] = tmp;
+
             size--;
         }
-        
+
         printArray(a);
         System.out.println("Current size is: " + size);
         System.out.println(sb.toString());
     }
-    
+
     public static void swap(int a, int b)
     {
         int tmp = a;
@@ -648,26 +639,24 @@ public class Util
         if (a.length == 0 || a == null)
             System.out.println("Empty Array");
 
-        
         for (int i = 0; i < a.length; i++)
         {
             System.out.print(a[i] + " ");
         }
         System.out.println();
     }
-    
+
     public static void printArray(int[] a, int i, int j)
     {
         if (a.length == 0 || a == null)
             System.out.println("Empty Array");
 
-        while(i<=j)
+        while (i <= j)
         {
             System.out.print(a[i] + " ");
             i++;
         }
         System.out.println();
     }
-
 
 }
