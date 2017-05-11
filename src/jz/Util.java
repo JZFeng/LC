@@ -636,8 +636,12 @@ public class Util
 
     public static void printArray(int[] a)
     {
-        if (a.length == 0 || a == null)
+        if (a == null || a.length == 0 )
+        {
             System.out.println("Empty Array");
+            return;
+        }
+            
 
         for (int i = 0; i < a.length; i++)
         {

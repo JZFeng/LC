@@ -17,17 +17,41 @@ return [0, 1].
  */
 package jz.lc;
 
+import java.util.HashMap;
+import jz.Util;
+
 public class TwoSum
 {
 
     public static void main(String[] args)
     {
+        int[] nums = new int[]{2,8,8,21,14};
+        int[] a = twoSum(nums, 16);
+        Util.printArray(a);
 
     }
 
-    public int[] twoSum(int[] nums, int target)
+    public static int[] twoSum(int[] nums, int target)
     {
-        return nums;
+        if(nums == null || nums.length < 2)
+            return null;
+        
+        HashMap<Integer, Integer> hashmap = new HashMap<Integer,Integer>();
+        
+        for(int i = 0; i < nums.length; i++)
+        {
+            int tmp =  target - nums[i];
+            if(!hashmap.containsKey(tmp))
+                hashmap.put(nums[i],i);
+            else
+            {
+                return new int[]{hashmap.get(tmp), i};
+            }
+            
+            
+        }
+        
+         return null;
 
     }
 }
