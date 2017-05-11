@@ -57,7 +57,8 @@ public class ListNode {
 	
 	public static void main(String[] args)
 	{
-		ListNode head = listfromArray(new int[]{});
+		ListNode head = listfromArray(new int[]{1,2,3});
+		System.out.println(size(head));
 		printList(head);
 	}
 

@@ -1,4 +1,7 @@
 /**
+
+https://leetcode.com/problems/zigzag-conversion/#/description
+
 6. ZigZag Conversion
 
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: 
@@ -25,7 +28,6 @@ public class ZigZagConversion
 
     public static void main(String[] args)
     {
-        // TODO Auto-generated method stub
 
     }
 

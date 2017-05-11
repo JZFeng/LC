@@ -1,4 +1,7 @@
-/**
+/*
+
+https://leetcode.com/problems/longest-palindromic-substring/#/description
+
 5. Longest Palindromic Substring
 
 Given a string s, find the longest palindromic substring in s. 
