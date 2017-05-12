@@ -1,4 +1,4 @@
-package jz.lc;
+package jz.lc.easy;
 
 import jz.LinkedList.ListNode;
 
