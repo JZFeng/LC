@@ -65,7 +65,7 @@ public class Util
 
             if (i < j)
             {
-                exchange(a, i, j);
+                swap(a, i, j);
 
                 if (a[i] == a[j])
                     i++;
@@ -91,7 +91,7 @@ public class Util
         return true;
     }
 
-    public static void exchange(int[] a, int i, int j)
+    public static void swap(int[] a, int i, int j)
     {
         int tmp = a[i];
         a[i] = a[j];
