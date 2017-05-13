@@ -22,12 +22,31 @@ public class ReverseString
 
     public static void main(String[] args)
     {
+        System.out.println(reverseString("Hello World"));
 
     }
 
-    public String reverseString(String s)
+    public static String reverseString(String s)
     {
-        return s;
+        if (s == null)
+            return null;
+        if (s.length() <= 1)
+            return s;
+
+        char[] str = s.trim().toCharArray();
+
+        int j = str.length - 1;
+        int i = 0;
+        while (i < j)
+        {
+            char c = str[i];
+            str[i] = str[j];
+            str[j] = c;
+            i++;
+            j--;
+        }
+
+        return String.valueOf(str);
 
     }
 
