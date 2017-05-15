@@ -11,7 +11,8 @@ Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 Output: 7 -> 0 -> 8
  *
  */
-package jz.lc;
+package jz.lc.medium;
+
 import jz.LinkedList.ListNode;
 
 public class AddTwoNumbers
@@ -19,11 +20,13 @@ public class AddTwoNumbers
 
     public static void main(String[] args)
     {
-        
+        ListNode l1 = ListNode.listfromArray(new int[]{ 2, 4, 3 });
+        ListNode l2 = ListNode.listfromArray(new int[]{ 5, 6, 4 });
+        ListNode.printList(addTwoNumbers(l1, l2));
 
     }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2)
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2)
     {
         int size1 = ListNode.size(l1);
         int size2 = ListNode.size(l2);

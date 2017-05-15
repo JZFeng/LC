@@ -1,19 +1,16 @@
 package jz;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
+import jz.BinarySearchTree.TreeNode;
 import jz.DoubleLinkedList.ListNode;
 
 public class HelloWorld {
 
 	public static void main(String[] args) {
-	    
-	    int[] nums1 = {1,2,2,3,4,5};
-	    int[] nums2 = {0,8,8,8,9};
-	    Util.printArray(nums1);
-	    Util.printArray(nums2);
-		Util.printArray(intersect(nums1, nums2));
-
+	    TreeNode t = TreeNode.fromString("[3,9,20,null,null,15,7]");
+	    TreeNode.preOrder(t);
 	}
 	
 	public  static int[] intersect(int[] nums1, int[] nums2) {

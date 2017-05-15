@@ -5,9 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Set;
 import java.util.Random;
-import java.util.Stack;
 
 public class BinarySearchTree {
 
@@ -34,7 +32,6 @@ public class BinarySearchTree {
 	}
 
 	private void preOrder(TreeNode root) {
-		int[] treeNodes;
 		if (root != null) {
 			System.out.print(root.key + " ");
 			preOrder(root.left);

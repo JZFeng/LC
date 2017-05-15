@@ -12,7 +12,7 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
 The number of elements initialized in nums1 and nums2 are m and n respectively.
  *
  */
-package jz.lc;
+package jz.lc.easy;
 
 /**
  *@author jzhfeng
@@ -28,6 +28,7 @@ public class MergeSortedArray
 
     public void merge(int[] nums1, int m, int[] nums2, int n)
     {
+        
 
     }
 
