@@ -21,12 +21,18 @@ public class SingleNumber
 
     public static void main(String[] args)
     {
+        System.out.println(singleNumber(new int[]{1,2,4,5,4,2,1}));
 
     }
 
-    public int singleNumber(int[] nums)
+    public static int singleNumber(int[] nums)
     {
-        return 0;
+        int res = 0;
+        for(int i = 0; i < nums.length; i++)
+        {
+            res = nums[i] ^ res;
+        }
+        return res;
 
     }
 
