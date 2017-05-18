@@ -32,15 +32,19 @@ public class SingleNumberII
     
     public static int singleNumber(int[] A) 
     {
-            int bitnum[]=new int[32]; 
-            int res=0;  
-            for(int i=0; i<32; i++){  
-                for(int j=0; j< A.length; j++){  
-                    bitnum[i]+=(A[j]>>i)&1;  
-                }  
-                res |= (bitnum[i]%3)<<i;  
-            }  
-            return res;  
-        }  
+        int[] bitCount = new int[32];
+        int res = 0;
+        for(int i = 0 ; i < 32; i++)
+        {
+            for(int j = 0 ; j < A.length ; j++)
+            {
+                bitCount[i] = bitCount[i] + (A[j] >> i & 1);
+            }
+            
+            res |= (bitCount[i]%3) << i;
+            
+        }
+        return res;
+    }  
     }
 

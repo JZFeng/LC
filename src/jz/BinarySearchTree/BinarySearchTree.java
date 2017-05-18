@@ -270,8 +270,8 @@ public class BinarySearchTree {
 
 	public static void main(String[] args) {
 
-		System.out.println(Integer.toBinaryString(6));
-		System.out.println(Integer.toBinaryString(-5));
+		System.out.println(Integer.toBinaryString(-2));
+		System.out.println(Integer.toBinaryString(-3));
 		int i = (int)'A';
 		System.out.println(Integer.toBinaryString(~'A'));
 
