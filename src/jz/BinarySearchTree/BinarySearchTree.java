@@ -269,36 +269,11 @@ public class BinarySearchTree {
 	}
 
 	public static void main(String[] args) {
-		int min = 10;
-		int max = 20;
 
-		HashSet<Integer> set = RandomSet(min, max, 9);
-		Iterator<Integer> itr = set.iterator();
-		BinarySearchTree tree = new BinarySearchTree(itr.next());
-
-		while (itr.hasNext()) {
-			tree.insert(itr.next());
-		}
-		
-		
-
-		System.out.println("Size of the tree is " + tree.size());
-		System.out.println("Height of the tree is " + tree.height());
-		tree.inOrder();
-		System.out.println();
-		tree.levelOrder();
-		System.out.println();
-		
-		Object[] a = set.toArray();
-		for (int i = 2; i < a.length; i++) {
-			tree.remove((Integer)a[i]);
-		}
-		
-		tree.inOrder();
-		System.out.println();
-		tree.levelOrder();
-		System.out.println();
-		
+		System.out.println(Integer.toBinaryString(6));
+		System.out.println(Integer.toBinaryString(-5));
+		int i = (int)'A';
+		System.out.println(Integer.toBinaryString(~'A'));
 
 	}
 
