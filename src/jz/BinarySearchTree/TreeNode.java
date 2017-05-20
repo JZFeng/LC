@@ -8,7 +8,9 @@ public class TreeNode
 {
 
     public int key;
+
     public TreeNode left;
+
     public TreeNode right;
 
     public TreeNode(int key)
@@ -18,6 +20,14 @@ public class TreeNode
         this.right = null;
     }
 
+    public static void main(String[] args)
+    {
+        String s = "5,4,7,3,#,2,#,-1,#,9";
+        System.out.println(s);
+        TreeNode root = fromString(s);
+        System.out.println(toString(root));
+
+    }
 
     public static TreeNode fromString(String str)
     {
@@ -25,9 +35,9 @@ public class TreeNode
         {
             return null;
         }
-        
-        if(str.startsWith("["))
-            str = str.substring(1, str.length()-1);
+
+        if (str.startsWith("["))
+            str = str.substring(1, str.length() - 1);
 
         String[] values = str.split(",");
 
@@ -75,7 +85,6 @@ public class TreeNode
         return root;
     }
 
-    
     /*
      * 5 / \ 4 7 / / 3 2 / / -1 9
      * 
@@ -150,13 +159,4 @@ public class TreeNode
         return s.substring(0, j + 1);
     }
 
-    public static void main(String[] args)
-    {
-        String s = "5,4,7,3,#,2,#,-1,#,9";
-        
-        System.out.println(s);
-        TreeNode root  = fromString(s);
-        System.out.println(toString(root));
-
-    }
 }
