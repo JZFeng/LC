@@ -28,26 +28,27 @@ public class ReverseString
 
     public static String reverseString(String s)
     {
-        if (s == null)
-            return null;
-        if (s.length() <= 1)
+        if(s == null || s.length() == 1)
             return s;
-
-        char[] str = s.trim().toCharArray();
-
-        int j = str.length - 1;
-        int i = 0;
-        while (i < j)
+        
+        int i = 0 ; int j = s.length() -1;
+        char[] c = s.toCharArray();
+        while(i <j)
         {
-            char c = str[i];
-            str[i] = str[j];
-            str[j] = c;
+            swap(c, i, j);
             i++;
             j--;
         }
-
-        return String.valueOf(str);
-
+       
+        return String.valueOf(c);
+        
+    }
+    
+    private static void swap(char[] c, int i , int j)
+    {
+        char tmp = c[i];
+        c[i] = c[j];
+        c[j] = tmp;
     }
 
 }

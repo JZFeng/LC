@@ -22,12 +22,17 @@ public class MaximumDepthofBinaryTree
 
     public static void main(String[] args)
     {
+        String s = "3,5,7,#,2,1";
+        TreeNode root = TreeNode.fromString(s);
+        System.out.println(TreeNode.toString(root));
+        System.out.print(s);
 
     }
     
     public int maxDepth(TreeNode root) {
-        return 0;
-        
+        if(root == null) return 0;
+        return 1+ Math.max(maxDepth(root.left), maxDepth(root.right));
     }
+    
 
 }
