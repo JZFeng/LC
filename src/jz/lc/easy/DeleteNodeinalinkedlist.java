@@ -25,48 +25,19 @@ public class DeleteNodeinalinkedlist
 
     public static void main(String[] args)
     {
-        ListNode head = ListNode.listfromArray(new int[]{1,2,3,4,5});
+        ListNode head = ListNode.listfromArray(new int[]{1,2,3,4});
         ListNode.printList(head);
-        int count = 1;
         ListNode cur = head;
-        while(count < 4)
-        {
+        while(cur.val != 3)
             cur = cur.next;
-            count++;
-        }
-        
-        
         deleteNode(cur);
         ListNode.printList(head);
-        
-        System.out.println(isHappy(18));
     }
 
-    public static void deleteNode(ListNode node)
-    {
+    public static void deleteNode(ListNode node) {
         node.val = node.next.val;
         node.next = node.next.next;
         
     }
    
-    public static boolean isHappy(int n) {
-        Set<Integer> inLoop = new HashSet<Integer>();
-        int squareSum,remain;
-        while (inLoop.add(n)) {
-            squareSum = 0;
-            while (n > 0) {
-                remain = n%10;
-                squareSum += remain*remain;
-                n /= 10;
-            }
-            if (squareSum == 1)
-                return true;
-            else
-                n = squareSum;
-
-        }
-        return false;
-
-    }
-
 }
