@@ -20,9 +20,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- *@author jzhfeng
- *@date May 12, 2017
-*/
+ * @author jzhfeng
+ * @date May 12, 2017
+ */
 public class FirstUniqueCharacterinaString
 {
 
@@ -30,57 +30,36 @@ public class FirstUniqueCharacterinaString
     {
         String s = "loveleetcode";
         System.out.println(firstUniqChar(s));
-        
-        for (int i = 0; i < s.length(); i++)
-        {
-            char c = s.charAt(i);
-            if(s.indexOf(c) == s.lastIndexOf(c))
-            {
-                System.out.println(i);
-                break;
-                
-            }
-               
-            
-            
-        }
 
     }
-    
-    public static int firstUniqChar(String s) {
-        if(s == null || s.length() == 0)
+
+    public static int firstUniqChar(String s)
+    {
+        if (s == null || s.length() == 0)
             return -1;
-        if(s.length() <=2)
-            return 0;
-            
-        HashMap<Character, Integer> hashmap = new HashMap<Character, Integer>();
-        int res = 0;
-        hashmap.put(s.charAt(0), 1);
-        
-        for(int i = 1 ; i < s.length() ; i++)
+
+        HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+
+        for (int i = 0; i < s.length(); i++)
         {
             Character c = Character.valueOf(s.charAt(i));
-            if(hashmap.containsKey(c))
-                hashmap.replace(c, (hashmap.get(c).intValue()+1));
+            if (hm.containsKey(c))
+                hm.replace(c, (hm.get(c).intValue()) + 1);
             else
-            {
-                hashmap.put(c, 1);
-            }
-                
+                hm.put(c, 1);
         }
-        
-        for(int i = 0 ; i < s.length() ; i++)
+
+        for (int i = 0; i < s.length(); i++)
         {
             Character c = Character.valueOf(s.charAt(i));
-            int tmp = hashmap.get(c).intValue();
-            if( tmp == 1)
-                return i; 
-           
-            
+            if (hm.get(c).intValue() == 1)
+            {
+                return i;
+            }
         }
-        
+
         return -1;
-        
+
     }
 
 }
