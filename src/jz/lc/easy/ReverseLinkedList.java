@@ -31,30 +31,31 @@ public class ReverseLinkedList
         
         ListNode pre = null;
         ListNode cur = head;
+        
         while(cur != null)
         {
-            ListNode next = cur.next;
+            ListNode nxt = cur.next;
             cur.next = pre;
             
             pre = cur;
-            cur = next;
+            cur = nxt;
         }
         
         return pre;
-        
     }
     
     public static ListNode reverseListRecursive(ListNode head) {
         if(head == null || head.next == null)
             return head;
         
-        ListNode nxt = head.next; 
+        ListNode nxt = head.next;
+        
         ListNode newHead = reverseListRecursive(head.next);
+        
         head.next = null;
         nxt.next = head;
         
         return newHead;
         
     }
-
 }
