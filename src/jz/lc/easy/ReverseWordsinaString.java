@@ -23,19 +23,23 @@ public class ReverseWordsinaString
 
     public static void main(String[] args)
     {
-      String s = "The Sky Is Blue";
+      String s = "   The     Sky    is   blue    ";
       System.out.println(reverseWordsIII(s));
 
     }
     
+    
+    
+    //String[] strs = s.trim().split("\\s{1,} ");  this is important.
+    
     public static String reverseWordsIII(String s)
     {
         if(s == null) return null;
-        String[] strs = s.trim().split(" ");
+        String[] strs = s.trim().split("\\s{1,} ");
+        
         StringBuilder sb = new StringBuilder();
         for(int i = strs.length - 1; i >=0 ; i--)
         {
-            if(strs[i].trim().length() > 0)
                 sb.append(strs[i] + " ");
         }
         
