@@ -38,12 +38,30 @@ public class ReverseInteger
 
     public static void main(String[] args)
     {
+        System.out.println(reverse(-123));
 
     }
 
-    public int reverse(int x)
+    public static int reverse(int x)
     {
-        return x;
+        int res = 0;
+        
+        while(x != 0)
+        {
+            int tail = x % 10;
+            
+            int newResult = res * 10 + tail;
+            
+            if((newResult - tail)/10 != res)
+                return 0;
+            
+            res = newResult;
+            
+            x = x/10;
+            
+        }
+        
+        return res;
 
     }
 }
