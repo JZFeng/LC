@@ -30,78 +30,40 @@ public class MergeTwoSortedLists
     }
     
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if(l1 == null) return l2;
-        if(l2 == null) return l1;
-        
-        ListNode dummy = new ListNode(Integer.MAX_VALUE);
+        ListNode dummy = new ListNode(Integer.MIN_VALUE);
         dummy.next = l1;
-        ListNode pre = dummy;
+        ListNode pre1 = dummy;
         ListNode cur1 = l1;
         
-        while(l2 != null && cur1 != null)
+        ListNode cur2 = l2;
+        
+        while(cur1 != null && cur2 != null)
         {
-            if(l2.val <= cur1.val)
+            if(cur1.val >= cur2.val) 
             {
-                ListNode tmp = l2.next;
-                pre.next = l2;
-                l2.next = cur1;
-  
-                pre = l2;
-                l2 = tmp;
+                ListNode tmp = cur2.next;
+                pre1.next = cur2;
+                cur2.next = cur1;
+                
+                cur1 = cur2;
+                cur2 = tmp;
             }
             else
             {
-                pre = cur1;
+                pre1 = cur1;
                 cur1 = cur1.next;
             }
         }
         
-        if(cur1 == null && l2 != null)
+        if(cur1 == null && cur2 != null)
         {
-            pre.next = l2;
+            pre1.next = cur2;
         }
         
         return dummy.next;
-        
     }
     
     
-    private static ListNode insertNode(ListNode head, int n)
-    {
-        ListNode node = new ListNode(n);
-        if(node == null)
-            return head;
-        
-        ListNode dummy = new ListNode(Integer.MAX_VALUE);
-        dummy.next = head;
-        
-        ListNode pre = dummy;
-        ListNode cur = head;
-        
-        while(cur != null)
-        {
-            if(node.val <= cur.val)
-            {
-                pre.next = node;
-                node.next = cur;
-                return dummy.next;
-                
-            }
-            else
-            {
-                pre = cur;
-                cur = cur.next;
-            }
-        }
-        
-        if(cur == null)
-        {
-            pre.next = node;
-        }
-        
-        
-        return dummy.next;
-    }
-   
+ 
 
 }
