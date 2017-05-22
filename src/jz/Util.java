@@ -10,28 +10,25 @@ public class Util
 
     public static void main(String[] args) throws IOException
     {
-        Random r = new Random();
-        int size = 1 + r.nextInt(10);
-        int[] a = new int[size];
-        for (int i = 0; i < a.length; i++)
+        String s = "      This      Guy      is      Crazy      ";
+        System.out.println(removeExcessiveWhiteSpace(s));
+        
+    }
+    
+    public static String removeExcessiveWhiteSpace(String s)
+    {
+        s = s.trim();
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        for(; i < s.length()-1; i++)
         {
-            a[i] = r.nextInt(20);
+            if(s.charAt(i) == ' ' && s.charAt(i+1) == ' ')
+                continue;
+            else
+                sb.append(s.charAt(i));
         }
-
-        int[] b = Arrays.copyOf(a, size);
-
-        System.out.println("Originl Arrays: ");
-        printArray(a);
-        printArray(b);
-
-        System.out.println("Sorted Arrays: ");
-        Arrays.sort(b);
-        printArray(b);
-
-        quickSort(a, 0, size - 1);
-        printArray(a);
-        System.out.println(isEqual(a, b));
-
+        sb.append(s.charAt(i));
+        return sb.toString().trim();
     }
 
     public static void quickSort(int[] a, int low, int high)
