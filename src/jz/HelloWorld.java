@@ -11,11 +11,10 @@ import jz.DoubleLinkedList.ListNode;
 public class HelloWorld {
 
 	public static void main(String[] args) {
-	    
-	    String s = "   JZ  Feng    20   ";
-	    String[] strs = s.trim().split("\\s{1,} ");
-	    for(String str: strs)
-	        System.out.println(str);
+	    String s = "   2    5    6 7     4       8      9     3     1    0   ";
+	    String[] nums = s.trim().split("\\s{1,}");
+	    for(String num: nums)
+	        System.out.print(Integer.parseInt(num)+" ");
 	}
 	
 
