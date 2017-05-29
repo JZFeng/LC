@@ -26,7 +26,7 @@ public class RotateArray
     public static void main(String[] args)
     {
         int[] a = new int[]
-        { 1, 2 };
+        { 1, 2,3,4,5,6,7};
         Util.printArray(a);
         rotate(a, 3);
         Util.printArray(a);
