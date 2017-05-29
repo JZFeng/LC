@@ -25,36 +25,40 @@ public class ValidStackPopSequence
     public static void main(String[] args)
     {
         int[] input = new int[]{0,1,2,3,4,5,6,7,8,9};
-        int[] output = intArrayfromString("4 3 2 1 0 9 8 7 6 5");
-        Util.printArray(output);
-        System.out.print(validSequence(input, output)+" : ");
-        Util.printArray(output);
-        
-        
-/*        
-        String[] outputs = new String[8];
-        outputs[0] = "4 3 2 1 0 9 8 7 6 5";
-        outputs[1] = "4 6 8 7 5 3 2 9 0 1";
-        outputs[2] = "2 5 6 7 4 8 9 3 1 0";
-        outputs[3] = "4 3 2 1 0 5 6 7 8 9";
-        outputs[4] = "1 2 3 4 5 6 9 8 7 0";
-        outputs[5] = "0 4 6 5 3 8 1 7 2 9";
-        outputs[6] = "1 4 7 9 8 6 5 3 0 2";
-        outputs[7] = "2 1 4 3 6 5 8 7 9 0";
-        
-
-        for(String output: outputs)
-        {
-            int[] outputIntArray = intArrayfromString(output);
-            System.out.print(validSequence(input, outputIntArray)+" : ");
-            Util.printArray(outputIntArray);
-        }   */ 
+        int[] output = intArrayfromString("4 3 2 1 0 8 9 7 5 6");
+        System.out.print(validSequence(input, output));
 
     }
-
-    public static boolean validSequence(int[] input, int[] sequenc) {
+    
+    public static boolean validSequence(int[] input, int[] output) {
+        int i = 0;
+        int j = 0;
+        Stack<Integer> stack = new Stack<Integer>();
+        
+        //search output[j] in the stack.
+        while(j < output.length)
+        {
+            if(stack.isEmpty())
+                stack.push(input[i++]);
+            else
+            {
+                if(stack.peek() == output[j])
+                {
+                    stack.pop();
+                    j++;
+                }
+                else
+                {
+                    if(i == input.length)
+                        return false;
+                    else
+                        stack.push(input[i++]);
+                }
+            }
+        }
+        
         return true;
-    }    
+    }
     
     
     
