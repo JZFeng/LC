@@ -9,7 +9,7 @@ Compute and return the square root of x.
 
  *
  */
-package jz.lc;
+package jz.lc.easy;
 
 /**
  * @author jzhfeng
