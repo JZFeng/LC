@@ -18,21 +18,48 @@ Note: The sequence of integers will be represented as a string.
 package jz.lc;
 
 /**
- *@author jzhfeng
- *@date May 10, 2017
+ * @author jzhfeng
+ * @date May 10, 2017
  */
 public class CountAndSay
 {
-
     public static void main(String[] args)
     {
-
+        System.out.println(countAndSay(4));
     }
-
-    public String countAndSay(int n)
+    
+    public static String countAndSay(int n) {
+        String prefix = "1";
+        if (n == 1) return prefix ;
+        
+        for(int i = 1 ; i < n; i++)
+        {
+            prefix = helper(prefix);
+        }
+        return prefix;
+    }
+    
+    //"11","111221","312211"
+    private static String helper(String s)
     {
-        return null;
-
+        int count = 0;
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        for( ; i < s.length(); i++)
+        {
+            if(i == 0 ) count++;
+            else if(s.charAt(i) == s.charAt(i-1)) count++;
+            else
+            {
+                sb.append(count);
+                sb.append(s.charAt(i-1));
+                count = 1;
+            }
+        }
+        sb.append(count);
+        sb.append(s.charAt(i-1));
+        return sb.toString();
+        
     }
 
 }
