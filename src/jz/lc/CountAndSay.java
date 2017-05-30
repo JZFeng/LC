@@ -25,14 +25,12 @@ public class CountAndSay
 {
     public static void main(String[] args)
     {
-        System.out.println(countAndSay(4));
+        System.out.println(countAndSay(5));
     }
     
     public static String countAndSay(int n) {
         String prefix = "1";
-        if (n == 1) return prefix ;
-        
-        for(int i = 1 ; i < n; i++)
+        for(int i = 1 ; i <= n; i++)
         {
             prefix = helper(prefix);
         }
