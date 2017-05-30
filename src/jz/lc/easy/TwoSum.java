@@ -15,7 +15,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 
  */
-package jz.lc;
+package jz.lc.easy;
 
 import java.util.HashMap;
 import jz.Util;
@@ -25,7 +25,7 @@ public class TwoSum
 
     public static void main(String[] args)
     {
-        int[] nums = new int[]{2,8,8,21,14};
+        int[] nums = new int[]{2,8,8,21,18};
         int[] a = twoSum(nums, 16);
         Util.printArray(a);
 
@@ -33,25 +33,21 @@ public class TwoSum
 
     public static int[] twoSum(int[] nums, int target)
     {
-        if(nums == null || nums.length < 2)
-            return null;
-        
-        HashMap<Integer, Integer> hashmap = new HashMap<Integer,Integer>();
-        
-        for(int i = 0; i < nums.length; i++)
+        int[] results = new int[2];
+        HashMap<Integer,Integer> hashmap = new HashMap<Integer,Integer>();
+        for(int i = 0 ; i < nums.length; i++)
         {
-            int tmp =  target - nums[i];
-            if(!hashmap.containsKey(tmp))
-                hashmap.put(nums[i],i);
+            if(hashmap.containsKey(target - nums[i]))
+            {
+                results[0] = hashmap.get(target - nums[i]) ;
+                results[1] = i;
+            }
             else
             {
-                return new int[]{hashmap.get(tmp), i};
+                hashmap.put(nums[i], i);
             }
-            
-            
         }
         
-         return null;
-
+        return results;
     }
 }
