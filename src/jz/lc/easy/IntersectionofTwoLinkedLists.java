@@ -30,14 +30,6 @@ import jz.LinkedList.ListNode;
 public class IntersectionofTwoLinkedLists
 {
 
-    public static void main(String[] args)
-    {
-        ListNode headA = ListNode.listfromArray(new int[]{1,2,3,4,5});
-        ListNode headB = ListNode.listfromArray(new int[]{4,5});
-        ListNode.printList(getIntersectionNode(headA, headB));
-
-    }
-
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB)
     {
         if(headA == null && headB == null) return null;
