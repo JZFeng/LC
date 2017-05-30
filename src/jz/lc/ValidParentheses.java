@@ -13,20 +13,47 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
  */
 package jz.lc;
 
+import java.util.Stack;
+
 /**
- *@author jzhfeng
- *@date May 10, 2017
+ * @author jzhfeng
+ * @date May 10, 2017
  */
 public class ValidParentheses
 {
 
     public static void main(String[] args)
     {
+        System.out.println(isValid("}"));
 
     }
 
-    public boolean isValid(String s) {
-        return false;
+    public static boolean isValid(String s)
+    {
+        if (s == null || s.length() == 0)
+            return true;
         
+        if (s.length() % 2 != 0)
+            return false;
+
+        Stack<Character> stack = new Stack<Character>();
+        for (int i = 0; i < s.length(); i++)
+        {
+            char c = s.charAt(i);
+            if (c == '[' || c == '(' || c == '{')
+                stack.push(c);
+
+            else if (!stack.isEmpty())
+            {
+                if ((c == ']' && stack.peek() != '[') || (c == ')' && stack.peek() != '(') || (c == '}' && stack.peek() != '{'))
+                    return false;
+
+                stack.pop();
+            }
+        }
+        
+        return stack.isEmpty();
+
     }
+
 }
