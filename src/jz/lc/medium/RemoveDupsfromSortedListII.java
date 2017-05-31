@@ -24,11 +24,55 @@ public class RemoveDupsfromSortedListII
     public static void main(String[] args)
     {
         ListNode head = ListNode.listfromArray(new int[]
-        { 1, 1, 2, 2, 3, 3, 3 });
+        {1,2,3,3});
         ListNode.printList(deleteDuplicates(head));
 
     }
 
+    
+    // User three pointers, pre, cur,nxt; 
+    public static ListNode deleteDuplicatesII(ListNode head)
+    {
+        ListNode dummy = new ListNode(Integer.MAX_VALUE);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode cur= head;
+        ListNode nxt = cur.next;
+        
+        boolean oktoDel = false;
+        while(cur.next != null)
+        {
+            if(cur.val == nxt.val)
+            {
+                oktoDel = true;
+                nxt = nxt.next;
+                if(nxt == null)
+                    pre.next = null;
+            }
+            else
+            {
+                if(oktoDel)
+                {
+                    pre.next = nxt;
+                    cur = nxt;
+                    nxt = nxt.next;
+                }
+                else
+                {
+                    pre = cur;
+                    cur = cur.next;
+                    nxt = nxt.next;
+                }
+            }
+        }
+        
+        return dummy.next;
+        
+    }
+
+    
+    
+    
     // User a counter. If counter > 1, remove all of them. If counter = 1, keep moving.
     public static ListNode deleteDuplicates(ListNode head)
     {
@@ -42,7 +86,7 @@ public class RemoveDupsfromSortedListII
         dummy.next = head;
         ListNode pre = dummy;
         ListNode cur = head;
-        while (cur != null && cur.next != null)
+        while (cur.next != null)
         {
             if (cur.val != cur.next.val)
             {
