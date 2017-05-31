@@ -28,9 +28,12 @@ public class MergeTwoSortedLists
     }
     
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1 == null || l2 == null)
+            return l1==null?l2:l1;
+        
         ListNode dummy = new ListNode(Integer.MAX_VALUE);
         dummy.next = l1;
-        ListNode pre1 = dummy;
+        ListNode pre = dummy;
         ListNode cur1 = l1;
         ListNode cur2 = l2;
         
@@ -39,26 +42,23 @@ public class MergeTwoSortedLists
             if(cur2.val <= cur1.val)
             {
                 ListNode tmp = cur2.next;
-                pre1.next = cur2;
+                pre.next =  cur2;
                 cur2.next = cur1;
                 cur1 = cur2;
                 cur2 = tmp;
             }
             else
             {
-                pre1 = cur1;
+                pre = cur1;
                 cur1 = cur1.next;
             }
+            
         }
         
-        if(cur1 == null && cur2 != null)
-            pre1.next = cur2;
+        if(cur2 != null)
+            pre.next = cur2;
         
         return dummy.next;
+                
     }
-    
-    
-    
-    
-    
 }
