@@ -11,7 +11,9 @@ You may assume the integer do not contain any leading zero, except the number 0 
 The digits are stored such that the most significant digit is at the head of the list.
 
  */
-package jz.lc;
+package jz.lc.easy;
+
+import jz.Util;
 
 /**
  *@author jzhfeng
@@ -22,13 +24,28 @@ public class PlusOne
 
     public static void main(String[] args)
     {
+        int[] a = new int[]{8,9,9,9};
+        Util.printArray(plusOne(a));
 
     }
 
-    public int[] plusOne(int[] digits)
+    public static int[] plusOne(int[] digits)
     {
-        return digits;
-
+        for(int i = digits.length -1; i >=0 ; i--)
+        {
+            if(digits[i] == 9)
+                digits[i] = 0;
+            else
+            {
+                digits[i]++;
+                return digits;
+            }
+        }
+        
+        int[] newDigits = new int[digits.length +1];
+        newDigits[0] = 1;
+        return newDigits;
+        
     }
 
 }
