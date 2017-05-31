@@ -28,8 +28,7 @@ public class RemoveDupsfromSortedArray
 
     public static void main(String[] args)
     {
-        int[] nums = new int[]
-        { 1, 1, 1, 2, 2, 3, 3 };
+        int[] nums = new int[]{1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,4,4};
         int newSize = removeDuplicates(nums);
         for (int i = 0; i < newSize; i++)
             System.out.print(nums[i] + " ");
@@ -38,28 +37,27 @@ public class RemoveDupsfromSortedArray
 
     public static int removeDuplicates(int[] nums)
     {
-        if (nums == null || nums.length == 0)
-            return 0;
-        if (nums.length == 1)
-            return 1;
+        if(nums == null || nums.length ==0) return 0;
+        //index is the end of the new array, also the position which can accept new element.
+        //i is the regular pointer of the array.
+        //nums[index - 1] is the last unique number
+        
+        int index = 1;
         int i = 1;
-        int j = 0;
-        while (i < nums.length && j < nums.length)
+        while(i < nums.length)
         {
-            if (nums[i] == nums[i - 1])
-            {
+            if(nums[i] == nums[index-1])
                 i++;
-            }
             else
             {
-                nums[j] = nums[i - 1];
-                j++;
+                nums[index] = nums[i];
                 i++;
+                index++;
             }
-
         }
-        nums[j] = nums[i - 1];
-        return j + 1;
+       
+        return index;
+         
     }
 
 }
