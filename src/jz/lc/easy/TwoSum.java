@@ -17,6 +17,7 @@ return [0, 1].
  */
 package jz.lc.easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import jz.Util;
 
@@ -26,11 +27,41 @@ public class TwoSum
     public static void main(String[] args)
     {
         int[] nums = new int[]{2,8,8,21,18};
-        int[] a = twoSum(nums, 16);
+        int[] a = twoSumII(nums, 16);
         Util.printArray(a);
 
     }
 
+    
+    //sort the array, use two pointers
+    public static int[] twoSumII(int[] nums, int target)
+    {
+        Arrays.sort(nums);
+        int left = 0;
+        int right = nums.length -1;
+        int sum = nums[left] + nums[right];
+        while(left < right)
+        {
+            if(sum < target)
+            {
+                left++;
+                sum = nums[left] + nums[right];
+            }
+                
+            else if(sum > target)
+            {
+                right--;
+                sum = nums[left] + nums[right];
+            }
+            else
+                return new int[]{left,right};
+                
+        }
+        
+        return null;
+        
+    }
+    
     public static int[] twoSum(int[] nums, int target)
     {
         int[] results = new int[2];
