@@ -15,34 +15,38 @@ package jz.lc.medium;
 import jz.LinkedList.ListNode;
 
 /**
- *@author jzhfeng
- *@date May 10, 2017
+ * @author jzhfeng
+ * @date May 10, 2017
  */
 public class RemoveDupsfromSortedListII
 {
 
     public static void main(String[] args)
     {
-        ListNode head = ListNode.listfromArray(new int[]{1,1,2,2,3,3,3});
+        ListNode head = ListNode.listfromArray(new int[]
+        { 1, 1, 2, 2, 3, 3, 3 });
         ListNode.printList(deleteDuplicates(head));
 
     }
 
-    //User a counter. If counter > 1, remove all of them. If counter = 1, keep moving.
-    public static ListNode deleteDuplicates(ListNode head) {
-        if(head == null) return null;
-        if(head.next == null) return head;
-        
+    // User a counter. If counter > 1, remove all of them. If counter = 1, keep moving.
+    public static ListNode deleteDuplicates(ListNode head)
+    {
+        if (head == null)
+            return null;
+        if (head.next == null)
+            return head;
+
         int count = 1;
         ListNode dummy = new ListNode(Integer.MAX_VALUE);
         dummy.next = head;
         ListNode pre = dummy;
         ListNode cur = head;
-        while(cur != null && cur.next != null)
+        while (cur != null && cur.next != null)
         {
-            if(cur.val != cur.next.val)
+            if (cur.val != cur.next.val)
             {
-                if(count == 1)
+                if (count == 1)
                 {
                     pre = cur;
                     cur = cur.next;
@@ -58,20 +62,16 @@ public class RemoveDupsfromSortedListII
             {
                 count++;
                 cur = cur.next;
-                
+
             }
         }
-        
-        if(count > 1)
+
+        if (count > 1)
         {
             pre.next = null;
         }
-        
-        
+
         return dummy.next;
     }
-    
-    
-    
-    
+
 }
