@@ -22,7 +22,7 @@ public class BinarySearchTree {
 	private void inOrder(TreeNode root) {
 		if (root != null) {
 			inOrder(root.left);
-			System.out.print(root.key + " ");
+			System.out.print(root.val + " ");
 			inOrder(root.right);
 		}
 	}
@@ -33,7 +33,7 @@ public class BinarySearchTree {
 
 	private void preOrder(TreeNode root) {
 		if (root != null) {
-			System.out.print(root.key + " ");
+			System.out.print(root.val + " ");
 			preOrder(root.left);
 			preOrder(root.right);
 		}
@@ -47,7 +47,7 @@ public class BinarySearchTree {
 		if (root != null) {
 			postOrder(root.left);
 			postOrder(root.right);
-			System.out.print(root.key + " ");
+			System.out.print(root.val + " ");
 		}
 
 	}
@@ -62,7 +62,7 @@ public class BinarySearchTree {
 			queue.offer(root);
 		while (!queue.isEmpty()) {
 			TreeNode tmp = queue.poll();
-			System.out.print(tmp.key + " ");
+			System.out.print(tmp.val + " ");
 			if (tmp.left != null)
 				queue.offer(tmp.left);
 			if (tmp.right != null)
@@ -80,7 +80,7 @@ public class BinarySearchTree {
 
 		while (!currentLevel.isEmpty()) {
 			TreeNode tmp = currentLevel.poll();
-			System.out.print(tmp.key + " ");
+			System.out.print(tmp.val + " ");
 
 			if (tmp.left != null)
 				nextLevel.offer(tmp.left);
@@ -106,7 +106,7 @@ public class BinarySearchTree {
 		while(!queue.isEmpty())
 		{
 			TreeNode tmp = queue.poll();
-			System.out.print(tmp.key + " ");
+			System.out.print(tmp.val + " ");
 			nodesInCurrentLevel--;
 			
 			if(tmp.left != null)
@@ -166,9 +166,9 @@ public class BinarySearchTree {
 		if (t == null)
 			return new TreeNode(key);
 
-		else if (key < t.key)
+		else if (key < t.val)
 			t.left = insert(key, t.left);
-		else if (key > t.key)
+		else if (key > t.val)
 			t.right = insert(key, t.right);
 
 		return t;
@@ -186,17 +186,17 @@ public class BinarySearchTree {
 		if(root == null)
 			return null;
 		
-		if(key < root.key)
+		if(key < root.val)
 			root.left = remove(key, root.left);
-		else if (key > root.key)
+		else if (key > root.val)
 			root.right = remove(key, root.right);
 		else
 		{
 			if((root.left != null) && (root.right != null))
 			{
 				TreeNode tmp = findMax(root.left);
-				root.key = tmp.key;
-				root.left = remove(tmp.key, root.left);
+				root.val = tmp.val;
+				root.left = remove(tmp.val, root.left);
 			}
 			else
 			{
@@ -240,9 +240,9 @@ public class BinarySearchTree {
 	public TreeNode find(int x, TreeNode t) {
 		if (t == null)
 			return null;
-		else if (x < t.key)
+		else if (x < t.val)
 			return find(x, t.left);
-		else if (x > t.key)
+		else if (x > t.val)
 			return find(x, t.right);
 		else
 			return t;

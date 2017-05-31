@@ -7,7 +7,7 @@ import java.util.Queue;
 public class TreeNode
 {
 
-    public int key;
+    public int val;
 
     public TreeNode left;
 
@@ -15,7 +15,7 @@ public class TreeNode
 
     public TreeNode(int key)
     {
-        this.key = key;
+        this.val = key;
         this.left = null;
         this.right = null;
     }
@@ -105,13 +105,13 @@ public class TreeNode
         while (!queue.isEmpty())
         {
             TreeNode tmp = queue.poll();
-            if (tmp.key == Integer.MIN_VALUE)
+            if (tmp.val == Integer.MIN_VALUE)
             {
                 sb.append("#,");
             }
             else
             {
-                sb.append(tmp.key + ",");
+                sb.append(tmp.val + ",");
                 nodesInCurrentLevel--;
 
                 if (tmp.left != null || tmp.right != null)

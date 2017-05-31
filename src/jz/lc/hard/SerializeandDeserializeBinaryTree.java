@@ -123,13 +123,13 @@ public class SerializeandDeserializeBinaryTree
         while (!queue.isEmpty())
         {
             TreeNode tmp = queue.poll();
-            if (tmp.key == Integer.MIN_VALUE)
+            if (tmp.val == Integer.MIN_VALUE)
             {
                 sb.append("#,");
             }
             else
             {
-                sb.append(tmp.key + ",");
+                sb.append(tmp.val + ",");
                 nodesInCurrentLevel--;
 
                 if (tmp.left != null || tmp.right != null)
