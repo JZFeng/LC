@@ -20,15 +20,6 @@ public class FactorialTrailingZeroes
     public static void main(String[] args)
     {
         System.out.println(trailingZeroes(30));
-        
-        int count = 0;
-        for (int i = 1; i <= 30; i++)
-        {
-            if(i%5 == 0) count++;
-            
-        }
-        System.out.println(count);
-
     }
 
     public static int trailingZeroes(int n)
