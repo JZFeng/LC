@@ -31,8 +31,13 @@ public class RemoveElement
 
     public int removeElement(int[] nums, int val)
     {
-        return val;
-
+        return 1;
     }
 
+    private static void swap(int[] a, int i , int j)
+    {
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
 }
