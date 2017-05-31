@@ -24,7 +24,7 @@ public class RemoveDupsfromSortedList
     public static void main(String[] args)
     {
         ListNode head = ListNode.listfromArray(new int[]
-        { 1, 2, 3 });
+        { 1, 1,2,2,2, 3,3,3,3 });
         ListNode.printList(deleteDuplicates(head));
 
     }
@@ -35,27 +35,20 @@ public class RemoveDupsfromSortedList
             return null;
         if (head.next == null)
             return head;
-        ListNode dummy = new ListNode(Integer.MAX_VALUE);
-        dummy.next = head;
-        ListNode pre = dummy;
         ListNode cur = head;
-
-        while (cur != null && cur.next != null)
+        while(cur != null && cur.next != null)
         {
-            if (cur.val == cur.next.val)
+            if(cur.val == cur.next.val)
             {
-                pre.next = cur.next;
-                cur = cur.next;
+                cur.next = cur.next.next;
             }
             else
             {
-                pre = cur;
                 cur = cur.next;
             }
-
         }
-        return dummy.next;
+        
+        return head;
 
     }
-
 }
