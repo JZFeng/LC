@@ -13,7 +13,7 @@ public class PowerofTwo
 
     public static void main(String[] args)
     {
-        System.out.println(isPowerOfTwo(9));
+        System.out.println(isPowerOfTwoII(9));
 
     }
     
@@ -29,6 +29,10 @@ public class PowerofTwo
         }
         return count == 1;
         
+    }
+    
+    public static boolean isPowerOfTwoII(int n) {
+        return (n&(n-1)) == 0;
     }
     
 
