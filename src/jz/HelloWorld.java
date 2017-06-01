@@ -13,6 +13,12 @@ public class HelloWorld {
 	public static void main(String[] args) {
 	    String s = "312211";
 	    System.out.println(helper(s));
+        int[] a = new int[]
+        { 0, 0, 0, 1, 3, 12, 0, 0 };
+        Util.printArray(a);
+        moveZeroes(a);
+        Util.printArray(a);
+
 	 
 	}
 	
@@ -61,5 +67,32 @@ public class HelloWorld {
 	    return sb.toString().trim();
 	}
 
-	
+	   public static void moveZeroes(int[] a)
+	    {
+	        if (a == null || a.length < 2)
+	            return;
+
+	        int i = 0;
+	        int j = 0;
+
+	        while (j < a.length)
+	        {
+	            if ((a[i] != 0))
+	                i++;
+	            if (a[j] == 0)
+	                j++;
+	            if (i < j)
+	            {
+	                Util.swap(a, i, j);
+	                j++;
+	            }
+	            else
+	            {
+	                j++;
+	            }
+
+	        }
+
+	    }
+
 }

@@ -46,6 +46,35 @@ public class MoveZeroes
         }
     }
     
+    public static void moveZeroesII(int[] a)
+    {
+        if (a == null || a.length < 2)
+            return;
+
+        int i = 0;
+        int j = 0;
+
+        while (j < a.length)
+        {
+            if ((a[i] != 0))
+                i++;
+            if (a[j] == 0)
+                j++;
+            if (i < j)
+            {
+                Util.swap(a, i, j);
+                j++;
+            }
+            else
+            {
+                j++;
+            }
+
+        }
+
+    }
+
+    
     private static void swap(int[] a, int i, int j)
     {
         int tmp = a[i];

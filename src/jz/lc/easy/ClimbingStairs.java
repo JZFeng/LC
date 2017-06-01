@@ -22,11 +22,11 @@ public class ClimbingStairs
     public static void main(String[] args)
     {
         long startTime = System.currentTimeMillis();
-        System.out.println(climbStairs(100));
+        System.out.println(climbStairs(50));
         System.out.println("non-recursion running time:  " + (System.currentTimeMillis() - startTime));
         
         startTime = System.currentTimeMillis();
-        System.out.println(climbStairsII(100));
+        System.out.println(climbStairsII(50));
         System.out.println("Recursion running time:  " + (System.currentTimeMillis() - startTime));
     }
 
