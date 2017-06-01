@@ -22,11 +22,12 @@ public class HappyNumber
 
     public static void main(String[] args)
     {
-        System.out.println(isHappyII(22));
+        isHappyII(22);
+        
     }
     
     //Floyd Cycle detection algorithm
-    public static int isHappyII(int n)
+    public static boolean isHappyII(int n)
     {
         int fast = n;
         int slow = n;
@@ -39,7 +40,9 @@ public class HappyNumber
             fast = getSquareSum(fast);
             fast = getSquareSum(fast);
         } while (fast != slow);
-        return count;
+        System.out.println(slow);
+        System.out.println("Count: " + count);
+        return fast == 1;
     }
     
 
