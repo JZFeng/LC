@@ -29,6 +29,7 @@ public class HouseRobber
 //        {1,3,5,7,9};
         System.out.println(rob(nums));
         System.out.println(robII(nums));
+        System.out.println(robIII(nums));
     }
 
 
@@ -42,6 +43,7 @@ public class HouseRobber
         if(result[idx] >=0)
             return result[idx];
         
+        //问题规模从n变成n-1且问题的性质不变。
         result[idx] =  Math.max(
             nums[idx] + rob(idx-2, nums),
             rob(idx-1,nums)     
@@ -81,5 +83,18 @@ public class HouseRobber
         }
         return result[nums.length-1];
         
+    }
+    
+    //滚动数组，节省空间.因为我们之需要存前两个运算的值。
+    public static int robIII(int[] nums) {
+        if(nums.length==0) return 0;
+        if(nums.length==1) return nums[0];
+        int[] dp = {nums[0], Math.max(nums[0], nums[1])};
+        int index=0;
+        for(int i=2; i<nums.length; i++){
+            index = i%2; // i&1 === i%2.  //index^1: 0->1, 1->0.
+            dp[index] = Math.max(nums[i]+dp[index], dp[index^1]); 
+        }
+        return Math.max(dp[0], dp[1]);
     }
 }
