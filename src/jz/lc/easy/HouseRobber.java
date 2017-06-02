@@ -28,6 +28,7 @@ public class HouseRobber
          {104,209,137,52,158,67,213,86,141,110,151,127,238,147,169,138,240,185,246,225,147,203,83,83,131,227,54,78,165,180,214,151,111,161,233,147,124,143};
 //        {1,3,5,7,9};
         System.out.println(rob(nums));
+        System.out.println(robII(nums));
     }
 
 
@@ -63,4 +64,22 @@ public class HouseRobber
         
     }
     
+    public static int robII(int[] nums) {
+        
+        if(nums.length == 0)
+            return 0;
+        
+        result = new int[nums.length];
+        
+        if(nums.length >=1)
+            result[0] = nums[0];
+        if(nums.length >=2)
+            result[1] = Math.max(nums[0], nums[1]);
+        
+        for(int i = 2; i < nums.length;i++){
+            result[i] = Math.max(nums[i] + result[i-2], result[i-1]);
+        }
+        return result[nums.length-1];
+        
+    }
 }
