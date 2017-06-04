@@ -1,19 +1,92 @@
 package jz.BinarySearchTree;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Random;
+import java.util.Stack;
 
 public class BinarySearchTree {
+    
+    public static void main(String[] args) {
 
+       TreeNode root = TreeNode.fromString("1,2,3,4,5,6,7");
+       BinarySearchTree bst = new BinarySearchTree(root);
+       
+       bst.postOrder();
+       System.out.println();
+       
+       ArrayList<Integer> arraylist =  (ArrayList<Integer>) bst.preorderTraversal(root);
+       Iterator<Integer> itr = arraylist.iterator();
+       while(itr.hasNext()){
+           System.out.print(itr.next() + " ");
+       }
+
+    }
+
+    
 	TreeNode root;
 
-	public BinarySearchTree(int key) {
-		this.root = new TreeNode(key);
+    public static List<Integer> inorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        pushAllLeftNodes(root, stack);
+        List<Integer> res = new ArrayList<Integer>();
+        
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            res.add(cur.val);
+            pushAllLeftNodes(cur.right, stack);
+        }
+        
+        return res;
+    }
+
+
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        if(root != null)
+            stack.push(root);
+        
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            res.add(cur.val);
+            if(cur.right != null)
+                stack.push(cur.right);
+            if(cur.left != null)
+                stack.push(cur.left);
+        }
+        
+        return res;
+    }
+
+    
+    private static void pushAllLeftNodes(TreeNode root, Stack<TreeNode> stack){
+        TreeNode cur = root;
+        while(cur != null){
+            stack.push(cur);
+            cur = cur.left;
+        }
+    }
+    
+	
+	public BinarySearchTree() {
+		this.root = null;
 	}
+
+    public BinarySearchTree(int val)
+    {
+        this.root = new TreeNode(val);
+    }
+    
+    public BinarySearchTree(TreeNode root)
+    {
+        this.root = root;
+    }
 
 	public void inOrder() {
 		inOrder(root);
@@ -268,11 +341,6 @@ public class BinarySearchTree {
 
 	}
 
-	public static void main(String[] args) {
 
-		System.out.println(Integer.toBinaryString(5));
-		System.out.println(Integer.toBinaryString(-5));
-
-	}
 
 }
