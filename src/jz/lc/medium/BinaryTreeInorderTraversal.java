@@ -51,29 +51,25 @@ public class BinaryTreeInorderTraversal
     }
     
     public static List<Integer> inorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        pushAllLeftNodes(root, stack);
         List<Integer> res = new ArrayList<Integer>();
-        while(!stack.isEmpty()){
-            TreeNode cur = stack.pop();
-            res.add(cur.val);
-            pushAllLeftNodes(cur.right, stack);
-        }
-        
-        return res;
-    }
-
-    private static void pushAllLeftNodes(TreeNode root, Stack<TreeNode> stack){
-    /*    while(root != null){
-            stack.push(root);
-            root = root.left;
-        }
-        */
+        if(root == null)
+            return res;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
         TreeNode cur = root;
-        while(cur != null){
-            stack.push(cur);
-            cur = cur.left;
+        while(!stack.isEmpty() || cur != null ){
+            //save all left nodes;
+            while(cur != null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+            
+            //处理中间节点
+            cur = stack.pop();
+            res.add(cur.val);
+            //处理右节点
+            cur = cur.right;
         }
+        return res;
     }
 
 }
