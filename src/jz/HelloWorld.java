@@ -1,25 +1,57 @@
 package jz;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 import jz.BinarySearchTree.TreeNode;
 import jz.DoubleLinkedList.ListNode;
 
 public class HelloWorld {
+    
+    public static class Pair implements Comparable<Pair>{
+        int val;
+        int freq;
+        
+        Pair(int val, int freq){
+            this.val = val;
+            this.freq = freq;
+        }
+
+        public int compareTo(Pair o)
+        {
+            return this.freq - o.freq;
+        }
+        
+    }
 
 	public static void main(String[] args) {
-	    String s = "312211";
-	    System.out.println(helper(s));
-        int[] a = new int[]
-        { 0, 0, 0, 1, 3, 12, 0, 0 };
-        Util.printArray(a);
-        moveZeroes(a);
-        Util.printArray(a);
-
-	 
+	    Pair[] pairs = new Pair[] {new Pair(3,2),new Pair(5,1),new Pair(8,3), new Pair(12,5) , new Pair(11, 4)};
+	    
+	    //build up minHeap;
+	    PriorityQueue<Pair> queue = new PriorityQueue<Pair>(3);
+	    for(Pair p: pairs)
+	    {
+	        if(queue.size() < 3)
+	            queue.offer(p);
+	        else if(queue.peek().freq < p.freq){
+	            queue.poll();
+	            queue.offer(p);
+	        }
+	    }
+	  
+	    for(Pair p: queue){
+	        System.out.println("Number: " + p.val + " ; " + p.freq);
+	    }
+	    
+	    while(!queue.isEmpty()){
+	       Pair p = queue.poll();
+	       System.out.println("Number: " + p.val + " ; " + p.freq);
+	   }
+	    
 	}
 	
 	//"1","11","111221", "312211"
