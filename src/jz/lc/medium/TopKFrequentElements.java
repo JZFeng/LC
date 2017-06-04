@@ -69,9 +69,11 @@ public class TopKFrequentElements
             }
         }
         
-        //iterate the queue and get the result
+        //iterate the queue and get the result.Since order matters, we have to use poll(); 
         List<Integer> res = new ArrayList<Integer>();
-        for(Entry<Integer,Integer> e : queue){
+        
+        while(!queue.isEmpty()){
+            Entry<Integer,Integer> e = queue.poll();
             res.add(e.getKey());
         }
         
