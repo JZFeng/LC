@@ -8,7 +8,7 @@ Divide two integers without using multiplication, division and mod operator.
 If it is overflow, return MAX_INT.
 
  */
-package jz.lc;
+package jz.lc.medium;
 
 /**
  *@author jzhfeng

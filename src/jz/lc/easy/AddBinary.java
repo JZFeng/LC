@@ -10,7 +10,7 @@ Return "100".
 
 
  */
-package jz.lc;
+package jz.lc.easy;
 
 /**
  *@author jzhfeng

@@ -19,7 +19,7 @@ A solution set is:
 
  *
  */
-package jz.lc;
+package jz.lc.medium;
 
 import java.util.List;
 

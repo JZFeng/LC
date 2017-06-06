@@ -25,7 +25,7 @@ For example, [0,2,3,1] is also a valid gray code sequence according to the above
 For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.
 
  */
-package jz.lc;
+package jz.lc.medium;
 
 import java.util.List;
 

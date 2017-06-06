@@ -18,7 +18,7 @@ If n = 4 and k = 2, a solution is:
 ]
 
  */
-package jz.lc;
+package jz.lc.medium;
 
 import java.util.List;
 

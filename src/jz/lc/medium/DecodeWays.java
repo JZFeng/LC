@@ -23,7 +23,7 @@ The number of ways decoding "12" is 2.
  *@date May 10, 2017
  */
 
-package jz.lc;
+package jz.lc.medium;
 public class DecodeWays
 {
 

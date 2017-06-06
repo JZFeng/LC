@@ -15,7 +15,7 @@ Note: The sequence of integers will be represented as a string.
  
  
  */
-package jz.lc;
+package jz.lc.easy;
 
 /**
  * @author jzhfeng

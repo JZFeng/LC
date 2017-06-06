@@ -13,7 +13,7 @@ c) Replace a character
  
  
  */
-package jz.lc;
+package jz.lc.medium;
 
 /**
  *@author jzhfeng
