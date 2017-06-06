@@ -52,6 +52,23 @@ public class Fibonacci
             res[index] = res[index]+res[index ^1];
         }
         return res[index];
-        
     }
+    
+    
+	public static long fibIIII(int n) {
+		if (n == 0 || n == 1)
+			return n;
+		else {
+			long pre0 = 0;
+			long pre1 = 1;
+			long i = 2;
+			while (i <= n) {
+				long tmp = pre1;
+				pre1 = pre0 + pre1;
+				pre0 = tmp;
+				i++;
+			}
+			return pre1;
+		}
+	}
 }

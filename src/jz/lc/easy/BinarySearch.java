@@ -25,4 +25,23 @@ public class BinarySearch
         return -1;
     }
 
+    public static int binarySearch(int key, int[] a, int low, int high) {
+		if (a == null || a.length == 0)
+			return -1;
+		if (low > high)
+			return -1;
+		else {
+			int mid = low + (high - low) / 2;
+			if (key < a[mid])
+				return binarySearch(key, a, 0, mid - 1);
+			else if (key == a[mid]) {
+				return mid;
+			} else {
+				return binarySearch(key, a, mid + 1, high);
+			}
+		}
+
+	}
+
+
 }

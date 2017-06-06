@@ -18,6 +18,7 @@ solution.reset();
 // Returns the random shuffling of array [1,2,3].
 solution.shuffle(); 
  */
+
 package jz.lc.medium;
 
 import java.util.Random;
@@ -28,11 +29,10 @@ public class ShuffleAnArray
 {
     
     public static void main(String[] args){
-        ShuffleAnArray sfa = new ShuffleAnArray(new int[]{1,2,3,4,5,6,7,8,9,10});
-        int[] res = sfa.shuffle();
-        Util.printArray(res);
-        res =sfa.reset();
-        Util.printArray(res);
+    	int nums[] = new int[]{1,2,3,4,5,6,7,8,9,10};
+        ShuffleAnArray sfa = new ShuffleAnArray(nums);
+        Util.printArray(sfa.shuffle());
+        Util.printArray(randSelect(nums, 5));
     }
 
     private int[] nums;
@@ -60,12 +60,30 @@ public class ShuffleAnArray
         int[] nums = this.nums.clone();
         for(int j = 0; j < nums.length; j++){
             int tmp = rd.nextInt(j+1);
-            Util.swap(nums, tmp, j);
+            swap(nums, tmp, j);
         }
         
         return nums;
 
     }
     
+    public static int[] randSelect(int[] nums, int n) {
+    	int[] res = new int[n];
+    	Random rd = new Random();
+    	if(nums.length >=n){
+    		for(int i = 0 ; i < n ; i++){
+    			swap(nums,i, rd.nextInt(nums.length -i) + i );
+    			res[i] = nums[i];
+    		}
+    	}
+    	
+    	return res;
+    }  
+    
+	private static void swap(int[] a, int i, int j) {
+		int tmp = a[i];
+		a[i] = a[j];
+		a[j] = tmp;
+	}
 
 }

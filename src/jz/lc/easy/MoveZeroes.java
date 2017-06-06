@@ -62,7 +62,7 @@ public class MoveZeroes
                 j++;
             if (i < j)
             {
-                Util.swap(a, i, j);
+                swap(a, i, j);
                 j++;
             }
             else
