@@ -1,4 +1,4 @@
-package jz.sorting;
+package jz.Sorting;
 
 // Java program for implementation of Heap Sort
 //http://www.geeksforgeeks.org/heap-sort/

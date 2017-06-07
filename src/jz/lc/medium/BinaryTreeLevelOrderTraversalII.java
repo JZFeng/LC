@@ -26,7 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.TreeNode;
 
 public class BinaryTreeLevelOrderTraversalII {
 

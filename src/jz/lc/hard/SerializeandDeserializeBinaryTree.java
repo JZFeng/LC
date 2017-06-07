@@ -30,7 +30,7 @@ import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.TreeNode;
 
 /**
  * @author jzhfeng

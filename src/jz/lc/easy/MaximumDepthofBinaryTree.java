@@ -11,7 +11,7 @@ from the root node down to the farthest leaf node.
  */
 package jz.lc.easy;
 
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.TreeNode;
 
 /**
  *@author jzhfeng

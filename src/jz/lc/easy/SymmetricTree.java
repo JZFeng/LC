@@ -23,7 +23,7 @@ But the following [1,2,2,null,3,null,3] is not:
  */
 package jz.lc.easy;
 
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.TreeNode;
 
 /**
  * @author jzhfeng

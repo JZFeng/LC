@@ -1,4 +1,4 @@
-package jz.sorting;
+package jz.Sorting;
 
 public class QuickSort {
 

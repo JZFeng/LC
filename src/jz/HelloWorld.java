@@ -13,8 +13,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import jz.BinarySearchTree.TreeNode;
 import jz.DoubleLinkedList.ListNode;
+import jz.tree.bst.TreeNode;
 
 public class HelloWorld {
 	

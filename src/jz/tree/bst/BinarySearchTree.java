@@ -1,4 +1,4 @@
-package jz.BinarySearchTree;
+package jz.tree.bst;
 
 import java.util.ArrayList;
 import java.util.Deque;

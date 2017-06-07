@@ -26,7 +26,7 @@ Binary tree [1,2,3], return false.
 
 package jz.lc;
 
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.TreeNode;
 
 /**
  *@author jzhfeng

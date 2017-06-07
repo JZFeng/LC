@@ -23,7 +23,7 @@ package jz.lc;
 
 import java.util.List;
 
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.TreeNode;
 
 /**
  *@author jzhfeng

@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
-import jz.BinarySearchTree.BinarySearchTree;
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.BinarySearchTree;
+import jz.tree.bst.TreeNode;
 
 public class BinaryTreePreorderTraversal
 {

@@ -27,9 +27,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-import jz.BinarySearchTree.BinarySearchTree;
-import jz.BinarySearchTree.TreeNode;
 import jz.LinkedList.ListNode;
+import jz.tree.bst.BinarySearchTree;
+import jz.tree.bst.TreeNode;
 
 public class BinaryTreeInorderTraversal
 {

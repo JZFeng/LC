@@ -12,7 +12,7 @@ if they are structurally identical and the nodes have the same value.
  */
 package jz.lc;
 
-import jz.BinarySearchTree.TreeNode;
+import jz.tree.bst.TreeNode;
 
 /**
  *@author jzhfeng
