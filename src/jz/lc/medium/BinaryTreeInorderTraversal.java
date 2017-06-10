@@ -54,6 +54,7 @@ public class BinaryTreeInorderTraversal
         List<Integer> res = new ArrayList<Integer>();
         if(root == null)
             return res;
+        
         Stack<TreeNode> stack = new Stack<TreeNode>();
         TreeNode cur = root;
         while(!stack.isEmpty() || cur != null ){

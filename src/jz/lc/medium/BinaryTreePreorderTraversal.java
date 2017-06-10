@@ -32,10 +32,10 @@ public class BinaryTreePreorderTraversal
 
     public static List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
-        Stack<TreeNode> stack = new Stack<TreeNode>();
         if(root == null)
             return res;
         
+        Stack<TreeNode> stack = new Stack<TreeNode>();
         TreeNode cur = root;
         stack.push(cur);
         

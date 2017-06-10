@@ -18,8 +18,10 @@ For example,
 
  *
  */
-package jz.lc;
+package jz.lc.medium;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,16 +30,4 @@ import java.util.List;
  */
 public class Permutations
 {
-
-    public static void main(String[] args)
-    {
-
-    }
-
-    public List<List<Integer>> permute(int[] nums)
-    {
-        return null;
-
-    }
-
 }
