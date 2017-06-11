@@ -37,47 +37,46 @@ import java.util.LinkedList;
 public class Subsets {
 
 	public static void main(String[] args) {
-		int[] nums = new int[] { 1, 2, 3 };
-		subsets(nums);
+		int[] nums = new int[] {};
+		ArrayList<ArrayList<Integer>> res = subsets(nums);
+		for(List<Integer> list: res){
+			System.out.println(list);
+		}
 	}
 
-	public static List<List<Integer>> subsets(int[] nums) {
-		List<List<Integer>> list = new ArrayList<>();
+	public static ArrayList<ArrayList<Integer>> subsets(int[] nums) {
+		ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+		if (nums == null) {
+			return res;
+		}
+		if (nums.length == 0) {
+			res.add(new ArrayList<Integer>());
+			return res;
+		}
+
 		Arrays.sort(nums);
-		backtrack(list, new ArrayList<>(), nums, 0);
-		return list;
+		ArrayList<Integer> subset = new ArrayList<Integer>();
+		// 任何集合都是以空集开始的
+		// 任何字符串都是以""空串开始的
+		helper(nums, 0, subset, res);
+		return res;
+
 	}
 
-	/**
-	 * 
-	 * @param list
-	 *            final output - include result before the
-	 * @param resultBeforeStart
-	 *            the result before the current index
-	 * @param nums
-	 *            input
-	 * @param start
-	 *            the current index which is in the input array
-	 * 
-	 *            Merge the result before the index AND the result from the
-	 *            current index
-	 */
-	static void backtrack(List<List<Integer>> list, List<Integer> resultBeforeStart, int[] nums, int start) {
-		System.out.println("Current index: " + start);
+	// 1. 递归的定义：从数组nums的当前位置，找出以subset为开头的所有子集，并存入res
 
-		list.add(new ArrayList<>(resultBeforeStart));
-		for (int i = start; i < 4; i++) {
-			resultBeforeStart.add(nums[i]);
-			backtrack(list, resultBeforeStart, nums, i + 1);
-			resultBeforeStart.remove(resultBeforeStart.size() - 1);
-			printList(resultBeforeStart);
+	private static void helper(int[] nums, int start, ArrayList<Integer> subset, ArrayList<ArrayList<Integer>> res) {
+		// Subset的克隆，deep copy
+		ArrayList<Integer> tmp = new ArrayList<Integer>(subset);
+		res.add(tmp);
+		
+		// 2. 递归的拆解
+		for (int i = start; i < nums.length; i++) {
+			tmp.add(nums[i]);
+			helper(nums, i + 1, tmp, res); // 从 [] -->[1],求出所有以1开头的子集；
+			tmp.remove(tmp.size() -1 ); // 回溯到初始状态, 即[1]回溯到[0];
 		}
+
 	}
-	
-	private static void printList(List<Integer> arraylist){
-		for(Integer num : arraylist){
-			System.out.print(num + " ");
-		}
-		System.out.println();
-	}
+
 }
