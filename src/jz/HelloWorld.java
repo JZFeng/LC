@@ -20,12 +20,39 @@ import jz.tree.bst.TreeNode;
 public class HelloWorld {
 
 	public static void main(String[] args) {
-		int[] A = new int[] { 1, 2, 3, 4 };
-		int[] B = new int[] { 2, 4, 5, 6 };
-		Util.printArray(mergeSortedArray(A, B));
+		int[] nums = new int[] { 1, 2,2,2,3,3,4 };
+		int pos = removeDuplicateNumbers(nums);
+		for(int i = 0 ; i < pos; i++ ){
+			System.out.print(nums[i] + " ");
+		}
 
 	}
 	
+	private static int removeDuplicateNumbers(int[] nums){
+		if(nums == null || nums.length == 0){
+			return -1;
+		}
+		
+		int pos =1;
+		for(int i = 1 ; i < nums.length; i++){
+			if(nums[i] == nums[i -1]){
+				continue;
+			}
+			else{
+				swap(nums, i, pos);
+				pos++;
+			}
+	
+		}
+		
+		return pos;
+	}
+	
+	private static void swap(int[] nums, int i, int j){
+		int tmp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = tmp;
+	}
 	
     public int backPack(int m, int[] A) {
         boolean f[][] = new boolean[A.length + 1][m + 1];
