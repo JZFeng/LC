@@ -8,6 +8,11 @@ import java.util.Stack;
 public class Util {
 
 	public static void main(String[] args) throws IOException {
+		int[] nums = new int[15];
+		int i = 5;
+		int left  = i * 2 + 1; //11
+		int right = i * 2 + 2; //12
+		System.out.println((right - 1) /2 );
 		
 	}
 
@@ -62,14 +67,14 @@ public class Util {
 
 
 
-	public static void printArray(int[] a) {
-		if (a == null || a.length == 0) {
+	public static void printArray(int[] js) {
+		if (js == null || js.length == 0) {
 			System.out.println("Empty Array");
 			return;
 		}
 
-		for (int i = 0; i < a.length; i++) {
-			System.out.print(a[i] + " ");
+		for (int i = 0; i < js.length; i++) {
+			System.out.print(js[i] + " ");
 		}
 		System.out.println();
 	}
