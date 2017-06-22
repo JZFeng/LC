@@ -1,51 +1,91 @@
 package jz.Sorting;
 
+import jz.Util;
+
 public class QuickSort {
-
 	public static void main(String[] args) {
-
+		int[] nums = new int[]{1,2,2,2,4,3,6,5};
+		Util.printArray(nums);
+		sortInteger(nums);
+		Util.printArray(nums);
 	}
-
-	public static void quickSort(int[] a, int low, int high) {
-		if (a == null || a.length == 0)
+	
+	private static void sortInteger(int[] nums ) {
+		quickSortII(nums, 0 , nums.length - 1);
+	}
+	
+	private static void quickSortII(int[] nums, int start, int end ) {
+		if (start >= end) {
 			return;
-
-		if (low <= high) {
-			int q = partition(a, low, high);
-			if (low < q)
-				quickSort(a, low, q - 1);
-
-			if (high > q)
-				quickSort(a, q + 1, high);
 		}
+		
+		int p = partition( nums, start, end);
+		quickSortII(nums, start, p);
+		quickSortII(nums, p + 1, end );
 	}
-
-	private static int partition(int[] a, int left, int right) {
-		int i = left;
-		int j = right;
-		int pivot = a[i];
-
-		while (i < j) {
-			while (a[i] < pivot)
-				i++;
-			while (a[j] > pivot)
-				j--;
-
-			if (i < j) {
-				swap(a, i, j);
-
-				if (a[i] == a[j])
-					i++;
+	
+	private static int partition( int[] nums, int start , int end ) {
+		if (start >= end) {
+			return - 1;
+		}
+		
+		int left = start;
+		int right = end;
+		int mid = left + (start - left) / 2;
+		int pivot = nums[mid];
+		while (left <= right) {
+			while (left <= right && nums[left] < pivot ) {
+				left++;
+			}
+			while (left <= right && nums[right] > pivot ) {
+				right--;
+			}
+			if (left <= right) {
+				int tmp = nums[left] ;
+				nums[left] = nums[right];
+				nums[right] = tmp;
+				left++;
+				right--;
 			}
 		}
 
-		return i;
+		return left - 1;
 	}
-
-	private static void swap(int[] a, int i, int j) {
-		int tmp = a[i];
-		a[i] = a[j];
-		a[j] = tmp;
+	
+	
+	private static void quickSort(int[] nums, int start, int end) {
+		if (nums == null || nums.length <= 1) {
+			return;
+		}
+		if (start >= end) {
+			return;
+		}
+		
+		int left = start;
+		int right = end;
+		int mid = left + (right - left) / 2;
+		int pivot = nums[mid];
+		
+		while( left <= right ) { //相邻
+			while ( left <= right && nums[left] < pivot ) {
+				left++;
+			}
+			while (left <= right && nums[right] > pivot ) {
+				right--;
+			}
+			
+			if ( left <= right) {
+				int tmp = nums[left];
+				nums[left] = nums[right];
+				nums[right] = tmp;
+				left++;
+				right--;
+			}
+		}
+		
+		System.out.println("pivot location is left " + left);
+		quickSort(nums, start, right);
+		quickSort(nums, left, end);
+		
 	}
-
 }
