@@ -1,19 +1,59 @@
 package jz;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 import java.util.Random;
+import java.util.Set;
 import java.util.Stack;
 
 public class Util {
 
 	public static void main(String[] args) throws IOException {
-		int[] nums = new int[15];
-		int i = 5;
-		int left  = i * 2 + 1; //11
-		int right = i * 2 + 2; //12
-		System.out.println((right - 1) /2 );
-		
+		int[] nums = new int[] { 4, 5, 6, 6, 7, 7, 1, 1, 1, 2, 2, 3 };
+
+	}
+
+
+	public boolean searchMatrix(int[][] matrix, int target) {
+		// write your code here
+		if (matrix == null || matrix.length == 0) {
+			return false;
+		}
+
+		int m = matrix.length;
+		int n = matrix[0].length;
+
+		int start = 0;
+		int end = m * n - 1;
+
+		while (start + 1 < end) {
+			int mid = start + (end - start) / 2;
+
+			if (matrix[mid / n][mid % n] == target) {
+				return true;
+			} else if (matrix[mid / n][mid % n] > target) {
+				end = mid;
+			} else {
+				start = mid;
+			}
+		}
+
+		if (matrix[start / n][start % n] == target) {
+			return true;
+		}
+
+		if (matrix[end / n][end % n] == target) {
+			return true;
+		}
+
+		return false;
 	}
 
 	public static void swap(int a, int b) {
@@ -65,8 +105,6 @@ public class Util {
 		return low;
 	}
 
-
-
 	public static void printArray(int[] js) {
 		if (js == null || js.length == 0) {
 			System.out.println("Empty Array");
@@ -89,6 +127,5 @@ public class Util {
 		}
 		System.out.println();
 	}
-
 
 }

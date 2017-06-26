@@ -30,17 +30,15 @@ public class ListNode
     {
         if (a == null || a.length == 0)
             return null;
-
-        ListNode head = new ListNode(a[0]);
-        ListNode current = head;
-        for (int i = 1; i < a.length; i++)
-        {
-            ListNode tmp = new ListNode(a[i]);
-            current.next = tmp;
-            current = tmp;
+        ListNode dummy = new ListNode(Integer.MAX_VALUE);
+        ListNode pre = dummy;
+        for(int i = 0 ; i <a.length ; i++) {
+        	ListNode cur = new ListNode(a[i]);
+        	pre.next = cur;
+        	pre = cur;
         }
-
-        return head;
+        
+        return dummy.next;
     }
 
     public static void printList(ListNode head)
@@ -77,8 +75,7 @@ public class ListNode
     public static void main(String[] args)
     {
         ListNode head = listfromArray(new int[]
-        { 1, 2, 3 });
-        System.out.println(size(head));
+        {1,2});
         printList(head);
     }
 
