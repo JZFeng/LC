@@ -13,12 +13,46 @@ import java.util.Random;
 import java.util.Set;
 import java.util.Stack;
 
+import jz.tree.bst.TreeNode;
+
 public class Util {
 
 	public static void main(String[] args) throws IOException {
 		int[] nums = new int[] { 4, 5, 6, 6, 7, 7, 1, 1, 1, 2, 2, 3 };
 
 	}
+
+
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> res = new LinkedList<>();
+        if (root == null) {
+            return res;
+        }
+        
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        while( !queue.isEmpty() ) {
+            int size = queue.size();
+            LinkedList<Integer> curLevel = new LinkedList<>();
+            for(int i = 0 ; i < size; i++) {
+                TreeNode tmp = queue.poll();
+                curLevel.add(tmp.val);
+                if (tmp.left != null ) {
+                    queue.offer(tmp.left);
+                }
+                if(tmp.right != null) {
+                    queue.offer(tmp.right);
+                }
+            }
+            
+            res.add(0, curLevel);
+            
+        }
+        
+        return res;
+    
+        
+    }
 
 
 	public boolean searchMatrix(int[][] matrix, int target) {

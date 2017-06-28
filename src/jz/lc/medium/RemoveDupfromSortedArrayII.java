@@ -18,6 +18,9 @@ Answer: http://www.cnblogs.com/ganganloveu/p/3737536.html?utm_source=tuicool&utm
  */
 package jz.lc.medium;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @author jzhfeng
  * @date May 10, 2017
@@ -28,14 +31,37 @@ public class RemoveDupfromSortedArrayII
     public static void main(String[] args)
     {
         // 1,1,1,1,2,2,2,2,3,3,3
-        int[] nums = new int[]
-        { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3 };
-        int newSize = removeDuplicatesII(nums);
+        int[] nums = new int[]{1,1,1,1,2,2,2,2,3,3,3};
+        ArrayList<Integer> a = new ArrayList<>();
+        a.add(5);a.add(3);
+        System.out.println(a.contains(3));
+        
+        
+        int newSize = dedupeII(nums);
         for (int i = 0; i < newSize; i++)
             System.out.print(nums[i] + " ");
 
     }
 
+    
+    public static int dedupeII(int[] nums) {
+    	 if (nums == null)
+             return 0;
+         if (nums.length <= 2)
+             return nums.length;
+         
+         int index = 2;
+         for(int i = 2 ; i < nums.length; i++) {
+        	 if (nums[i] == nums[index - 2]) {
+        		 continue;
+        	 } 
+        	 
+        	 nums[index++] = nums[i];
+         }
+         
+         return index;
+    }
+    
     public static int removeDuplicatesII(int[] nums)
     {
         if (nums == null)
@@ -61,7 +87,6 @@ public class RemoveDupfromSortedArrayII
                 index++;
             }
         }
-
         return index;
     }
 
@@ -75,6 +100,8 @@ public class RemoveDupfromSortedArrayII
 
         int index = k;
         int i = k;
+        
+        
         while (i < nums.length)
         {
             if (nums[i] == nums[index - k])

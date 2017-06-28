@@ -23,41 +23,55 @@ import jz.Util;
  * @author jzhfeng
  * @date May 10, 2017
  */
-public class RemoveDupsfromSortedArray
-{
+public class RemoveDupsfromSortedArray {
 
-    public static void main(String[] args)
-    {
-        int[] nums = new int[]{1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,4,4};
-        int newSize = removeDuplicates(nums);
-        for (int i = 0; i < newSize; i++)
-            System.out.print(nums[i] + " ");
+	public static void main(String[] args) {
+		int[] nums = new int[] { 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4 };
+		int newSize = dedupe(nums);
+		for (int i = 0; i < newSize; i++)
+			System.out.print(nums[i] + " ");
 
-    }
+	}
 
-    public static int removeDuplicates(int[] nums)
-    {
-        if(nums == null || nums.length ==0) return 0;
-        //index is the end of the new array, also the position which can accept new element.
-        //i is the regular pointer of the array.
-        //nums[index - 1] is the last unique number
-        
-        int index = 1;
-        int i = 1;
-        while(i < nums.length)
-        {
-            if(nums[i] == nums[index-1])
-                i++;
-            else
-            {
-                nums[index] = nums[i];
-                i++;
-                index++;
-            }
-        }
-       
-        return index;
-         
-    }
+	public static int dedupe(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return 0;
+		}
+		
+		int index = 1;
+		for(int i = 1 ; i < nums.length; i++) {
+			if ( nums[i - 1] == nums[i]) {
+				continue;
+			}
+			nums[index++] = nums[i];
+		}
+		
+		return index;
+	}
+	
+	
+	public static int removeDuplicates(int[] nums) {
+		if (nums == null || nums.length == 0)
+			return 0;
+		// index is the end of the new array, also the position which can accept
+		// new element.
+		// i is the regular pointer of the array.
+		// nums[index - 1] is the last unique number
+
+		int index = 1;
+		int i = 1;
+		while (i < nums.length) {
+			if (nums[i] == nums[index - 1])
+				i++;
+			else {
+				nums[index] = nums[i];
+				i++;
+				index++;
+			}
+		}
+
+		return index;
+
+	}
 
 }

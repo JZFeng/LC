@@ -28,6 +28,13 @@ If nums = [1,2,2], a solution is:
 package jz.lc.medium;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+import jz.tree.bst.TreeNode;
 
 
 public class SubsetsII
@@ -36,12 +43,9 @@ public class SubsetsII
     public static void main(String[] args)
     {
     	int[] nums = new int[]{1,2,2};
-    	ArrayList<ArrayList<Integer>>  results = subsetsWithDup(nums);
-    	for(ArrayList<Integer> list : results){
-    		System.out.println(list);
-    	}
-    	
-
+    	ArrayList<Integer> a = new ArrayList<>();
+    	a.add(1);
+    	System.out.println(a.get(0));
     }
 
     public static ArrayList<ArrayList<Integer>> subsetsWithDup(int[] nums)
@@ -65,16 +69,15 @@ public class SubsetsII
     }
 
     private static void helper(int[] nums, int start, ArrayList<Integer> subset, ArrayList<ArrayList<Integer>> res){
-    	ArrayList<Integer> tmp = new ArrayList<Integer>(subset);
-    	res.add(tmp);
+    	res.add(new ArrayList<Integer>(subset));
     	
     	for(int i = start; i < nums.length; i++){
-    	    if(i != start && nums[i] == nums[i -1] ){
+    	    if(i != 0 && i != start && nums[i] == nums[i -1] ) {
     			continue;
     		}
-    		tmp.add(nums[i]);
-    		helper(nums, i + 1, tmp, res);
-    		tmp.remove(tmp.size() -1 );
+    		subset.add(nums[i]);
+    		helper(nums, i + 1, subset, res);
+    		subset.remove(subset.size() -1 );
     	}
     	
     }
