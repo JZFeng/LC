@@ -56,6 +56,7 @@ public class NumberofIslands {
 		int m = grid.length;
 		int n = grid[0].length;
 		UF unionfind = new UF(m * n);
+		
 		int total = 0;
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
@@ -70,7 +71,7 @@ public class NumberofIslands {
 			for (int j = 0 ; j < n ; j++) {
 				if ( grid[i][j] == '1' ) {
 					if ( i > 0 && grid[i - 1][j] == '1' ) 
-						unionfind.connect( i*n+j, (i-1)*n +j );
+						unionfind.connect( i*n+j, (i-1)*n +j ); //use index NOT find(index) !!!
 					
 					if ( i < m - 1 && grid[i + 1][j] == '1' ) 	
 						unionfind.connect( i*n+j, (i+1)*n +j );
