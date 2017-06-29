@@ -41,60 +41,34 @@ public class BinaryTreeLevelOrderTraversal
 
     public static void main(String[] args)
     {
-        TreeNode root = TreeNode.fromString("1,2,3,4,5,6,7");
+        TreeNode root = TreeNode.fromString("1,3,2,5,4,7,6");
         
-        List<List<Integer>> res = levelOrder(root);
-        for(List<Integer> a : res){
-            Iterator<Integer> itr = a.iterator();
-            while(itr.hasNext()){
-                System.out.print(itr.next() + " ");
-            }
-            System.out.println();
-        }
+        List<Integer> res = levelOrder(root);
+        System.out.println(res);
         
     }
     
 
-    public static List<List<Integer>> levelOrder(TreeNode root) {
-
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        
-        if(root == null)
-            return res;
-        
-        TreeNode cur = root;
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        List<Integer> curLevel = new ArrayList<Integer>();
-        List<Integer> nextLevel = new ArrayList<Integer>();
-        int numCur = 1;
-        int numNext = 0;
-        queue.offer(cur);
-        while(!queue.isEmpty()){
-            TreeNode tmp = queue.poll();
-            curLevel.add(tmp.val);
-            numCur--;
-            
-            if(tmp.left != null){
-                queue.offer(tmp.left);
-                numNext++;
-            }
-            if(tmp.right != null){
-                queue.offer(tmp.right);
-                numNext++;
-            }
-            
-            if(numCur == 0){
-                res.add(curLevel);
-                numCur = numNext;
-                numNext = 0;
-                curLevel = nextLevel;
-                nextLevel = new ArrayList<Integer>();
-            }
-            
-        }
-        
-        return res;
-    
+    public static List<Integer> levelOrder(TreeNode root) {
+    	List<Integer> res = new LinkedList<>();
+    	if ( root == null) {
+    		return res;
+    	}
+    	
+    	Queue<TreeNode> queue = new LinkedList<TreeNode>();
+    	queue.offer(root);
+    	while ( !queue.isEmpty() ) {
+    		TreeNode tmp = queue.poll();
+    		res.add(tmp.val);
+    		if (tmp.left != null) {
+    			queue.offer(tmp.left);
+    		}
+    		if (tmp.right != null) {
+    			queue.offer(tmp.right);
+    		}
+    	}
+    	
+    	return res;
     }
 
 }
