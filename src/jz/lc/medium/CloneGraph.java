@@ -34,64 +34,55 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class CloneGraph {
+class UndirectedGraphNode {
+	int label;
+	List<UndirectedGraphNode> neighbors;
 	
-	class UndirectedGraphNode {
-		int label;
-		List<UndirectedGraphNode> neighbors;
-
-		UndirectedGraphNode(int x) {
-			label = x;
-			neighbors = new ArrayList<UndirectedGraphNode>();
-		}
-	};
-
-	public static void main(String[] args) {
-
+	UndirectedGraphNode(int x) {
+		label = x;
+		neighbors = new ArrayList<UndirectedGraphNode>();
 	}
+}
 
-	
+public class CloneGraph {
     /**
      * @param node: A undirected graph node
      * @return: A undirected graph node
      */
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         if (node == null) {
-            return node;
+            return null;
         }
+        
+        //get all nodes
+        ArrayList<UndirectedGraphNode> nodes = getAllNodes(node);
 
-        // use bfs algorithm to traverse the graph and get all nodes.
-        ArrayList<UndirectedGraphNode> nodes = getNodes(node);
-        
-        // copy nodes, store the old->new mapping information in a hash map
-        HashMap<UndirectedGraphNode, UndirectedGraphNode> mapping = new HashMap<>();
-        for (UndirectedGraphNode n : nodes) {
-            mapping.put(n, new UndirectedGraphNode(n.label));
+        //copy nodes;
+        HashMap<UndirectedGraphNode , UndirectedGraphNode> hashmap = new HashMap<>();
+        for( UndirectedGraphNode n : nodes ) {
+            hashmap.put(n,  new UndirectedGraphNode(n.label));
         }
         
-        // copy neighbors(edges)
+        //copy edges;
         for (UndirectedGraphNode n : nodes) {
-            UndirectedGraphNode newNode = mapping.get(n);
+            UndirectedGraphNode newNode = hashmap.get(n);
             for (UndirectedGraphNode neighbor : n.neighbors) {
-                UndirectedGraphNode newNeighbor = mapping.get(neighbor);
-                newNode.neighbors.add(newNeighbor);
-            }
+                newNode.neighbors.add(hashmap.get(neighbor));
+            } 
         }
         
-        return mapping.get(node);
+        return hashmap.get(node);
     }
     
-    private ArrayList<UndirectedGraphNode> getNodes(UndirectedGraphNode node) {
+    private ArrayList<UndirectedGraphNode>  getAllNodes(UndirectedGraphNode node) {
         Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
         HashSet<UndirectedGraphNode> set = new HashSet<>();
-        
         queue.offer(node);
-        set.add(node);
         while (!queue.isEmpty()) {
             UndirectedGraphNode head = queue.poll();
+            set.add(head);
             for (UndirectedGraphNode neighbor : head.neighbors) {
-                if(!set.contains(neighbor)){
-                    set.add(neighbor);
+                if (set.add(neighbor) == true ) {
                     queue.offer(neighbor);
                 }
             }
