@@ -66,7 +66,7 @@ public class QuickSort {
 		int mid = left + (right - left) / 2;
 		int pivot = nums[mid];
 		
-		while( left <= right ) { //相邻
+		while( left <= right ) { 
 			while ( left <= right && nums[left] < pivot ) {
 				left++;
 			}
@@ -83,7 +83,6 @@ public class QuickSort {
 			}
 		}
 		
-		System.out.println("pivot location is left " + left);
 		quickSort(nums, start, right);
 		quickSort(nums, left, end);
 		

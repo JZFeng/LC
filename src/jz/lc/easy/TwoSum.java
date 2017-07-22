@@ -26,7 +26,7 @@ public class TwoSum
 
     public static void main(String[] args)
     {
-        int[] nums = new int[]{2,8,8,21,18};
+        int[] nums = new int[]{2,8,8,18,21};
         int[] a = twoSumII(nums, 16);
         Util.printArray(a);
 
@@ -36,30 +36,26 @@ public class TwoSum
     //sort the array, use two pointers
     public static int[] twoSumII(int[] nums, int target)
     {
-        Arrays.sort(nums);
-        int left = 0;
-        int right = nums.length -1;
-        int sum = nums[left] + nums[right];
-        while(left < right)
-        {
-            if(sum < target)
-            {
-                left++;
-                sum = nums[left] + nums[right];
-            }
-                
-            else if(sum > target)
-            {
-                right--;
-                sum = nums[left] + nums[right];
-            }
-            else
-                return new int[]{left,right};
-                
-        }
-        
-        return null;
-        
+    	int[] ans = new int[2];
+    	if ( nums == null || nums.length == 0) {
+    		return ans; 
+    	}
+    	
+    	int i = 0 ;
+    	int j = nums.length - 1;
+    	while ( i < j ) {
+    		if ( nums[i] + nums[j] == target ) {
+    			ans[0] = i;
+    			ans[1] = j;
+    			break;
+    		} else if ( nums[i] + nums[j] > target ) {
+    			j--;
+    		} else {
+    			i++;
+    		}
+    	}
+    	
+    	return ans;
     }
     
     public static int[] twoSum(int[] nums, int target)

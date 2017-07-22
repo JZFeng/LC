@@ -14,6 +14,8 @@ Note:
  */
 package jz.lc.easy;
 
+import java.util.HashSet;
+
 import jz.Util;
 
 /**
@@ -25,6 +27,8 @@ public class MoveZeroes
 
     public static void main(String[] args)
     {
+    	HashSet<Integer> set = new HashSet<>();
+    	
         int[] a = new int[]
         {0,1,0,3,12};
         Util.printArray(a);
