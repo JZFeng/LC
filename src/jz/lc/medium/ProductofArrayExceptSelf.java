@@ -30,6 +30,11 @@ public class ProductofArrayExceptSelf
     
     
     public static int[] productExceptSelf(int[] nums) {
+    	//我们可以先遍历一遍数组，每一个位置上存之前所有数字的乘积。
+    	//那么一遍下来，最后一个位置上的数字是之前所有数字之积，是符合题目要求的.
+    	//只是前面所有的数还需要在继续乘。
+    	//我们这时候再从后往前扫描，每个位置上的数在乘以后面所有数字之积.
+    	//对于最后一个位置来说，由于后面没有数字了，所以乘以1就行。
     	int[] res = new int[nums.length];
     	res[0] = 1;
     	int left = 1;
@@ -39,9 +44,9 @@ public class ProductofArrayExceptSelf
     	}
     	
     	int right = 1;
-    	for(int i = nums.length-2; i>=0; i--){
-    		right *= nums[i+1];
-    		res[i] = res[i]*right;
+    	for(int i = nums.length-1; i>=0; i--){
+    		res[i] *= right;
+    		right *= nums[i];
     	}
 
     	return res;
