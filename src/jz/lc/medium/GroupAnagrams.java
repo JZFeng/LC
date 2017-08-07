@@ -17,7 +17,7 @@ Note: All inputs will be in lower-case.
 
  *
  */
-package jz.lc;
+package jz.lc.medium;
 
 import java.util.List;
 
