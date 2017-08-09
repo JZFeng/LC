@@ -25,6 +25,7 @@ public class CountAndSay
 {
     public static void main(String[] args)
     {
+    	System.out.println(helper2("312211") );
         System.out.println(countAndSay(5));
     }
     
@@ -32,7 +33,7 @@ public class CountAndSay
         String prefix = "1";
         for(int i = 1 ; i <= n; i++)
         {
-            prefix = helper(prefix);
+            prefix = helper2(prefix);
         }
         return prefix;
     }
@@ -58,6 +59,23 @@ public class CountAndSay
         sb.append(s.charAt(i-1));
         return sb.toString();
         
+    }
+    
+    private static String helper2(String s) {
+    	int i = 0; 
+    	int j = 0;
+    	StringBuilder sb = new StringBuilder();
+    	while(j < s.length()) {
+    		while(j < s.length() && s.charAt(j) == s.charAt(i)) {
+    			j++;
+    		}
+    		sb.append(j - i);
+    		sb.append(s.charAt(i));
+    		i = j;
+    		j = j++;
+    	}
+    	
+    	return sb.toString();
     }
 
 }
