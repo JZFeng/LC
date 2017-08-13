@@ -27,7 +27,7 @@ import jz.Util;
 public class TriangleCount {
 
 	public static void main(String[] args) {
-		System.out.println(triangleCount(new int[]{4, 6, 3, 6, 7}));
+		System.out.println(triangleCount(new int[] { 4, 6, 3, 6, 7 }));
 
 	}
 

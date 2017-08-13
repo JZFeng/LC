@@ -31,42 +31,42 @@ import java.util.Map;
 public class FourSumII {
 
 	public static void main(String[] args) {
-		int[] A = new int[]{1,2};
-		int[] B = new int[]{-2,-1};
-		int[] C = new int[]{-1,2};
-		int[] D = new int[]{0,2};
+		int[] A = new int[] { 1, 2 };
+		int[] B = new int[] { -2, -1 };
+		int[] C = new int[] { -1, 2 };
+		int[] D = new int[] { 0, 2 };
 		System.out.println(fourSumCount(A, B, C, D));
 	}
 
 	public static int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
 		HashMap<Integer, Integer> ab = new HashMap<Integer, Integer>();
-		for(int a: A){
-			for(int b: B){
-				if(ab.containsKey(a+b))
-					ab.put(a+b, ab.get(a+b)+1);
+		for (int a : A) {
+			for (int b : B) {
+				if (ab.containsKey(a + b))
+					ab.put(a + b, ab.get(a + b) + 1);
 				else
-					ab.put(a+b, 1);
+					ab.put(a + b, 1);
 			}
 		}
-		
+
 		HashMap<Integer, Integer> cd = new HashMap<Integer, Integer>();
-		for(int c: C){
-			for(int d: D){
-				if(cd.containsKey(c+d))
-					cd.put(c+d, cd.get(c+d)+1);
+		for (int c : C) {
+			for (int d : D) {
+				if (cd.containsKey(c + d))
+					cd.put(c + d, cd.get(c + d) + 1);
 				else
-					cd.put(c+d, 1);
+					cd.put(c + d, 1);
 			}
 		}
-		
+
 		int count = 0;
-		for(Map.Entry<Integer, Integer> entry: ab.entrySet()){
+		for (Map.Entry<Integer, Integer> entry : ab.entrySet()) {
 			int tmp = -entry.getKey();
-			if(cd.containsKey(tmp)){
-				count+= entry.getValue() * cd.get(tmp);
+			if (cd.containsKey(tmp)) {
+				count += entry.getValue() * cd.get(tmp);
 			}
 		}
-		
+
 		return count;
 
 	}

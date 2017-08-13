@@ -70,7 +70,7 @@ public class BinarySearch {
 				end = mid;
 			} else if (a[mid] > target) {
 				end = mid;
-			} else if(a[mid] < target){
+			} else if (a[mid] < target) {
 				start = mid;
 			}
 		}

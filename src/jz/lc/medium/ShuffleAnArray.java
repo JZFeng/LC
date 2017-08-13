@@ -25,61 +25,57 @@ import java.util.Random;
 
 import jz.Util;
 
-public class ShuffleAnArray
-{
-    
-    public static void main(String[] args){
-    	int nums[] = new int[]{1,2,3,4,5,6,7,8,9,10};
-        ShuffleAnArray sfa = new ShuffleAnArray(nums);
-        Util.printArray(sfa.shuffle());
-        Util.printArray(randSelect(nums, 5));
-    }
+public class ShuffleAnArray {
 
-    private int[] nums;
-    
+	public static void main(String[] args) {
+		int nums[] = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		ShuffleAnArray sfa = new ShuffleAnArray(nums);
+		Util.printArray(sfa.shuffle());
+		Util.printArray(randSelect(nums, 5));
+	}
 
-    public ShuffleAnArray(int[] nums) {
-        this.nums = nums;
-        
-    }
+	private int[] nums;
 
-    /** Resets the array to its original configuration and return it. */
-    public int[] reset()
-    {
-        return this.nums;
+	public ShuffleAnArray(int[] nums) {
+		this.nums = nums;
 
-    }
+	}
 
-    /** Returns a random shuffling of the array. */
-    public int[] shuffle()
-    {
-        if(nums == null)
-            return null;
-        
-        Random rd = new Random();
-        int[] nums = this.nums.clone();
-        for(int j = 0; j < nums.length; j++){
-            int tmp = rd.nextInt(j+1);
-            swap(nums, tmp, j);
-        }
-        
-        return nums;
+	/** Resets the array to its original configuration and return it. */
+	public int[] reset() {
+		return this.nums;
 
-    }
-    
-    public static int[] randSelect(int[] nums, int n) {
-    	int[] res = new int[n];
-    	Random rd = new Random();
-    	if(nums.length >=n){
-    		for(int i = 0 ; i < n ; i++){
-    			swap(nums,i, rd.nextInt(nums.length -i) + i );
-    			res[i] = nums[i];
-    		}
-    	}
-    	
-    	return res;
-    }  
-    
+	}
+
+	/** Returns a random shuffling of the array. */
+	public int[] shuffle() {
+		if (nums == null)
+			return null;
+
+		Random rd = new Random();
+		int[] nums = this.nums.clone();
+		for (int j = 0; j < nums.length; j++) {
+			int tmp = rd.nextInt(j + 1);
+			swap(nums, tmp, j);
+		}
+
+		return nums;
+
+	}
+
+	public static int[] randSelect(int[] nums, int n) {
+		int[] res = new int[n];
+		Random rd = new Random();
+		if (nums.length >= n) {
+			for (int i = 0; i < n; i++) {
+				swap(nums, i, rd.nextInt(nums.length - i) + i);
+				res[i] = nums[i];
+			}
+		}
+
+		return res;
+	}
+
 	private static void swap(int[] a, int i, int j) {
 		int tmp = a[i];
 		a[i] = a[j];

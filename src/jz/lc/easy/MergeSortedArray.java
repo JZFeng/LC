@@ -20,50 +20,39 @@ import jz.Util;
  * @author jzhfeng
  * @date May 10, 2017
  */
-public class MergeSortedArray
-{
+public class MergeSortedArray {
 
-    public static void main(String[] args)
-    {
-        int[] nums1 = new int[]
-        { 1, 2, 4, 5, 6, 0 };
+	public static void main(String[] args) {
+		int[] nums1 = new int[] { 1, 2, 4, 5, 6, 0 };
 
-        int[] nums2 = new int[]
-        { 3 };
+		int[] nums2 = new int[] { 3 };
 
-        merge(nums1, 5, nums2, nums2.length);
-        Util.printArray(nums1);
+		merge(nums1, 5, nums2, nums2.length);
+		Util.printArray(nums1);
 
-    }
+	}
 
-    public static void merge(int[] nums1, int m, int[] nums2, int n)
-    {
-        if (n == 0)
-            return;
+	public static void merge(int[] nums1, int m, int[] nums2, int n) {
+		if (n == 0)
+			return;
 
-        int i = m - 1;
-        int j = n - 1;
-        int index = m + n - 1;
-        while (i >= 0 && j >= 0)
-        {
-            if (nums1[i] > nums2[j])
-            {
-                nums1[index--] = nums1[i--];
-            }
-            else
-            {
-                nums1[index--] = nums2[j--];
-            }
-        }
+		int i = m - 1;
+		int j = n - 1;
+		int index = m + n - 1;
+		while (i >= 0 && j >= 0) {
+			if (nums1[i] > nums2[j]) {
+				nums1[index--] = nums1[i--];
+			} else {
+				nums1[index--] = nums2[j--];
+			}
+		}
 
-        while (j >= 0)
-        {
-            nums1[index--] = nums2[j--];
-        }
-        while (i >= 0)
-        {
-            nums1[index--] = nums1[i--];
-        }
-    }
+		while (j >= 0) {
+			nums1[index--] = nums2[j--];
+		}
+		while (i >= 0) {
+			nums1[index--] = nums1[i--];
+		}
+	}
 
 }

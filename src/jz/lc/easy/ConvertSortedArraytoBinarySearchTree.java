@@ -10,38 +10,34 @@ package jz.lc.easy;
 
 import jz.tree.bst.TreeNode;
 
-public class ConvertSortedArraytoBinarySearchTree
-{
+public class ConvertSortedArraytoBinarySearchTree {
 
-    public static void main(String[] args)
-    {
-        int[] array = new int[]{1,2,3,4,5,6,7,8};
-        TreeNode root = sortedArrayToBST(array);
-        System.out.println(TreeNode.toString(root));
+	public static void main(String[] args) {
+		int[] array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+		TreeNode root = sortedArrayToBST(array);
+		System.out.println(TreeNode.toString(root));
 
-    }
+	}
 
-    public static TreeNode sortedArrayToBST(int[] nums)
-    {
-        return helper(nums, 0, nums.length-1 );
+	public static TreeNode sortedArrayToBST(int[] nums) {
+		return helper(nums, 0, nums.length - 1);
 
-    }
+	}
 
-    private static TreeNode helper(int[] nums, int left, int right)
-    {
-        if(nums == null || nums.length == 0) 
-            return null;
-        
-        if (left > right)
-            return null;
-        if (left == right)
-            return new TreeNode(nums[left]);
+	private static TreeNode helper(int[] nums, int left, int right) {
+		if (nums == null || nums.length == 0)
+			return null;
 
-        int mid = left + (right - left) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left = helper(nums, left, mid - 1);
-        root.right = helper(nums, mid + 1, right);
+		if (left > right)
+			return null;
+		if (left == right)
+			return new TreeNode(nums[left]);
 
-        return root;
-    }
+		int mid = left + (right - left) / 2;
+		TreeNode root = new TreeNode(nums[mid]);
+		root.left = helper(nums, left, mid - 1);
+		root.right = helper(nums, mid + 1, right);
+
+		return root;
+	}
 }

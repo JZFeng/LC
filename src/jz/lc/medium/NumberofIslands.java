@@ -12,13 +12,13 @@ class UF {
 		}
 	}
 
-	int find(int x) { //compress find. X is index of array father;
+	int find(int x) { // compress find. X is index of array father;
 		int f = x;
 		while (father[f] != f) {
 			f = father[f];
 		}
 
-		//update all nodes on the path.
+		// update all nodes on the path.
 		while (father[x] != x) {
 			int tmp = father[x];
 			father[x] = f;
@@ -28,14 +28,15 @@ class UF {
 		return f;
 	}
 
-	void connect(int a, int b) { //parameters are index of array father.
-        int f_a  = find(a);
-        int f_b = find(b);
-        if (f_a != f_b) {
-            father[f_a] = f_b; //Attention !!!! father[f_a] = f_b  NOT f_a = f_b;
-            count--;
-        }
-    }
+	void connect(int a, int b) { // parameters are index of array father.
+		int f_a = find(a);
+		int f_b = find(b);
+		if (f_a != f_b) {
+			father[f_a] = f_b; // Attention !!!! father[f_a] = f_b NOT f_a =
+								// f_b;
+			count--;
+		}
+	}
 
 	int query() {
 		return count;
@@ -56,7 +57,7 @@ public class NumberofIslands {
 		int m = grid.length;
 		int n = grid[0].length;
 		UF unionfind = new UF(m * n);
-		
+
 		int total = 0;
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
@@ -66,26 +67,30 @@ public class NumberofIslands {
 			}
 		}
 		unionfind.set_count(total);
-		
-		for (int i = 0 ; i < m ; i++) {
-			for (int j = 0 ; j < n ; j++) {
-				if ( grid[i][j] == '1' ) {
-					if ( i > 0 && grid[i - 1][j] == '1' ) 
-						unionfind.connect( i*n+j, (i-1)*n +j ); //use index NOT find(index) !!!
-					
-					if ( i < m - 1 && grid[i + 1][j] == '1' ) 	
-						unionfind.connect( i*n+j, (i+1)*n +j );
-					
-					if ( j >0 && grid[i][j - 1] == '1') 
-						unionfind.connect( i*n+j, i*n + j - 1 );
-					
-					if ( j < n - 1 && grid[i][j + 1] == '1') 
-						unionfind.connect(i*n+j , i*n + j + 1);
+
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (grid[i][j] == '1') {
+					if (i > 0 && grid[i - 1][j] == '1')
+						unionfind.connect(i * n + j, (i - 1) * n + j); // use
+																		// index
+																		// NOT
+																		// find(index)
+																		// !!!
+
+					if (i < m - 1 && grid[i + 1][j] == '1')
+						unionfind.connect(i * n + j, (i + 1) * n + j);
+
+					if (j > 0 && grid[i][j - 1] == '1')
+						unionfind.connect(i * n + j, i * n + j - 1);
+
+					if (j < n - 1 && grid[i][j + 1] == '1')
+						unionfind.connect(i * n + j, i * n + j + 1);
 
 				}
 			}
 		}
-		
+
 		return unionfind.query();
 
 	}

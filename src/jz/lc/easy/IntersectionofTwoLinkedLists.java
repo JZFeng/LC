@@ -27,50 +27,42 @@ package jz.lc.easy;
 
 import jz.LinkedList.ListNode;
 
-public class IntersectionofTwoLinkedLists
-{
+public class IntersectionofTwoLinkedLists {
 
-    public static ListNode getIntersectionNode(ListNode headA, ListNode headB)
-    {
-        if(headA == null && headB == null) return null;
-        int lenA = len(headA);
-        int lenB = len(headB);
-        int diff = Math.abs(lenA - lenB);
-        if(lenA > lenB)
-        {
-            while(diff != 0)
-            {
-                headA = headA.next;
-                diff--;
-            }
-        }
-        else
-        {
-            while(diff!=0)
-            {
-                headB = headB.next;
-                diff--;
-            }
-        }
-        
-        while(headA != headB)
-        {
-            headA = headA.next;
-            headB = headB.next;
-        }
+	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+		if (headA == null && headB == null)
+			return null;
+		int lenA = len(headA);
+		int lenB = len(headB);
+		int diff = Math.abs(lenA - lenB);
+		if (lenA > lenB) {
+			while (diff != 0) {
+				headA = headA.next;
+				diff--;
+			}
+		} else {
+			while (diff != 0) {
+				headB = headB.next;
+				diff--;
+			}
+		}
 
-        return headA;
-    }
+		while (headA != headB) {
+			headA = headA.next;
+			headB = headB.next;
+		}
 
-    private static int len(ListNode head)
-    {
-        if(head == null) return 0;
-        int count = 0;
-        while(head != null)
-        {
-            count++;
-            head = head.next;
-        }
-        return count;
-    }
+		return headA;
+	}
+
+	private static int len(ListNode head) {
+		if (head == null)
+			return 0;
+		int count = 0;
+		while (head != null) {
+			count++;
+			head = head.next;
+		}
+		return count;
+	}
 }

@@ -34,28 +34,27 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 
 	public static void main(String[] args) {
 		TreeNode root = TreeNode.fromString("3,9,20,#,#,15,7");
-		
+
 		List<List<Integer>> res = zigzagLevelOrder(root);
-		for(List<Integer> a : res){
+		for (List<Integer> a : res) {
 			Iterator<Integer> itr = a.iterator();
-			while(itr.hasNext()){
-				System.out.print(itr.next() +" ");
+			while (itr.hasNext()) {
+				System.out.print(itr.next() + " ");
 			}
 			System.out.println();
 		}
 
 	}
-	
 
-    public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        
+	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+
 		List<List<Integer>> res = new LinkedList<List<Integer>>();
 
 		if (root == null)
 			return res;
 
 		TreeNode cur = root;
-//		int numofLevels = 0;
+		// int numofLevels = 0;
 		boolean isOddLevel = true;
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		List<Integer> curLevel = new LinkedList<Integer>();
@@ -65,10 +64,9 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 		queue.offer(cur);
 		while (!queue.isEmpty()) {
 			TreeNode tmp = queue.poll();
-			if(isOddLevel){
+			if (isOddLevel) {
 				curLevel.add(tmp.val);
-			}
-			else{
+			} else {
 				curLevel.add(0, tmp.val);
 			}
 			numCur--;
@@ -95,6 +93,6 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 
 		return res;
 
-    }
+	}
 
 }

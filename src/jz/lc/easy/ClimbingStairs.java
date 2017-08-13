@@ -13,46 +13,44 @@ Note: Given n will be a positive integer.
 package jz.lc.easy;
 
 /**
- *@author jzhfeng
- *@date May 10, 2017
+ * @author jzhfeng
+ * @date May 10, 2017
  */
-public class ClimbingStairs
-{
+public class ClimbingStairs {
 
-    public static void main(String[] args)
-    {
-        long startTime = System.currentTimeMillis();
-        System.out.println(climbStairs(50));
-        System.out.println("non-recursion running time:  " + (System.currentTimeMillis() - startTime));
-        
-        startTime = System.currentTimeMillis();
-        System.out.println(climbStairsII(50));
-        System.out.println("Recursion running time:  " + (System.currentTimeMillis() - startTime));
-    }
+	public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
+		System.out.println(climbStairs(50));
+		System.out.println("non-recursion running time:  " + (System.currentTimeMillis() - startTime));
 
-    public static long climbStairs(int n)
-    {
-        if(n < 0 ) return 0;
-        if(n <=2) return n;
-        
-        long[] ways = new long[n];
-        ways[0] = 1; ways[1] =2;
-        for(int i = 2; i < n ; i++)
-        {
-            ways[i] = ways[i-1] + ways[i-2];
-        }
-        
-        return ways[n-1]; 
-    }
+		startTime = System.currentTimeMillis();
+		System.out.println(climbStairsII(50));
+		System.out.println("Recursion running time:  " + (System.currentTimeMillis() - startTime));
+	}
 
-    public static long climbStairsII(int n)
-    {
-        if (n < 0)
-            return 0;
-        if (n <= 2)
-            return n;
+	public static long climbStairs(int n) {
+		if (n < 0)
+			return 0;
+		if (n <= 2)
+			return n;
 
-        return climbStairsII(n - 1) + climbStairsII(n - 2);
+		long[] ways = new long[n];
+		ways[0] = 1;
+		ways[1] = 2;
+		for (int i = 2; i < n; i++) {
+			ways[i] = ways[i - 1] + ways[i - 2];
+		}
 
-    }
+		return ways[n - 1];
+	}
+
+	public static long climbStairsII(int n) {
+		if (n < 0)
+			return 0;
+		if (n <= 2)
+			return n;
+
+		return climbStairsII(n - 1) + climbStairsII(n - 2);
+
+	}
 }

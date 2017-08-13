@@ -29,8 +29,8 @@ public class ConvertIntegerAtoB
         
         while(xor != 0)
         {
+        	count++;
             xor = xor & (xor-1);  // effect of statement x & (x - 1) is get rid of bit 1 of the lowest position.
-            count++;
         }
         return count;
     }

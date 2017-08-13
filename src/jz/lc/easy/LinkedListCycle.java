@@ -45,12 +45,12 @@ public class LinkedListCycle
 
     }
 
-    public static boolean hasCycle(ListNode head)
+	public static boolean hasCycle(ListNode head)
     {
         if (head == null || head.next == null)
             return false;
 
-        ListNode fast = head;
+        ListNode fast = head.next;
         ListNode slow = head;
         while (fast != null && fast.next != null)
         {

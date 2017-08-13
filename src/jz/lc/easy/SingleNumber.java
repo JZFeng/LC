@@ -16,23 +16,19 @@ package jz.lc.easy;
  * @author jzhfeng
  * @date May 12, 2017
  */
-public class SingleNumber
-{
+public class SingleNumber {
 
-    public static void main(String[] args)
-    {
-        System.out.println(singleNumber(new int[]{1,2,4,5,4,2,1}));
+	public static void main(String[] args) {
+		System.out.println(singleNumber(new int[] { 1, 2, 4, 5, 4, 2, 1 }));
 
-    }
+	}
 
-    public static int singleNumber(int[] nums)
-    {
-        int res = 0;
-        for(int i = 0 ; i < nums.length; i++)
-        {
-            res = res ^ nums[i];
-        }
-        return res;
-    }
+	public static int singleNumber(int[] nums) {
+		int res = 0;
+		for (int i = 0; i < nums.length; i++) {
+			res = res ^ nums[i];
+		}
+		return res;
+	}
 
 }

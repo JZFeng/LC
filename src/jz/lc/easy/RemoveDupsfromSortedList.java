@@ -18,37 +18,29 @@ import jz.LinkedList.ListNode;
  * @author jzhfeng
  * @date May 10, 2017
  */
-public class RemoveDupsfromSortedList
-{
+public class RemoveDupsfromSortedList {
 
-    public static void main(String[] args)
-    {
-        ListNode head = ListNode.listfromArray(new int[]
-        { 1, 1,2,2,2, 3,3,3,3 });
-        ListNode.printList(deleteDuplicates(head));
+	public static void main(String[] args) {
+		ListNode head = ListNode.listfromArray(new int[] { 1, 1, 2, 2, 2, 3, 3, 3, 3 });
+		ListNode.printList(deleteDuplicates(head));
 
-    }
+	}
 
-    public static ListNode deleteDuplicates(ListNode head)
-    {
-        if (head == null)
-            return null;
-        if (head.next == null)
-            return head;
-        ListNode cur = head;
-        while(cur != null && cur.next != null)
-        {
-            if(cur.val == cur.next.val)
-            {
-                cur.next = cur.next.next;
-            }
-            else
-            {
-                cur = cur.next;
-            }
-        }
-        
-        return head;
+	public static ListNode deleteDuplicates(ListNode head) {
+		if (head == null)
+			return null;
+		if (head.next == null)
+			return head;
+		ListNode cur = head;
+		while (cur != null && cur.next != null) {
+			if (cur.val == cur.next.val) {
+				cur.next = cur.next.next;
+			} else {
+				cur = cur.next;
+			}
+		}
 
-    }
+		return head;
+
+	}
 }

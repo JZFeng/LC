@@ -16,52 +16,43 @@ import java.util.HashMap;
 
 import jz.Util;
 
-public class MajorityElement
-{
+public class MajorityElement {
 
-    public static void main(String[] args)
-    {
-        int[] a = new int[]
-        { 2, 2, 1, 1, 1, 2, 2 };
-        System.out.println(majorityElementMoorVoting(a));
+	public static void main(String[] args) {
+		int[] a = new int[] { 2, 2, 1, 1, 1, 2, 2 };
+		System.out.println(majorityElementMoorVoting(a));
 
-    }
+	}
 
-    public static int majorityElement(int[] nums)
-    {
-        int size = nums.length;
-        HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++)
-        {
-            if (hm.containsKey(Integer.valueOf(nums[i])))
-            {
-                hm.replace(nums[i], hm.get(nums[i]) + 1);
-            }
-            else
-                hm.put(nums[i], 1);
+	public static int majorityElement(int[] nums) {
+		int size = nums.length;
+		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			if (hm.containsKey(Integer.valueOf(nums[i]))) {
+				hm.replace(nums[i], hm.get(nums[i]) + 1);
+			} else
+				hm.put(nums[i], 1);
 
-            if (hm.get(nums[i]).intValue() > size / 2)
-                return nums[i];
+			if (hm.get(nums[i]).intValue() > size / 2)
+				return nums[i];
 
-        }
+		}
 
-        return Integer.MIN_VALUE;
+		return Integer.MIN_VALUE;
 
-    }
+	}
 
-    public static int majorityElementMoorVoting(int[] nums)
-    {
-        int count = 0, candidate = 0;
-        for (int num : nums)
-        {
-            if (count == 0)
-                candidate = num;
-            if (num != candidate)
-                count--;
-            else
-                count++;
-        }
-        return candidate;
-    }
+	public static int majorityElementMoorVoting(int[] nums) {
+		int count = 0, candidate = 0;
+		for (int num : nums) {
+			if (count == 0)
+				candidate = num;
+			if (num != candidate)
+				count--;
+			else
+				count++;
+		}
+		return candidate;
+	}
 
 }

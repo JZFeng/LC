@@ -19,7 +19,7 @@ public class FactorialTrailingZeroes
 
     public static void main(String[] args)
     {
-        System.out.println(trailingZeroes(30));
+        System.out.println(trailingZeroes(11));
     }
 
     public static int trailingZeroes(int n)

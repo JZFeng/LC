@@ -39,7 +39,7 @@ public class Subsets {
 	public static void main(String[] args) {
 		int[] nums = new int[] {};
 		ArrayList<ArrayList<Integer>> res = subsets(nums);
-		for(List<Integer> list: res){
+		for (List<Integer> list : res) {
 			System.out.println(list);
 		}
 	}
@@ -69,12 +69,12 @@ public class Subsets {
 		// Subset的克隆，deep copy
 		ArrayList<Integer> tmp = new ArrayList<Integer>(subset);
 		res.add(tmp);
-		
+
 		// 2. 递归的拆解
 		for (int i = start; i < nums.length; i++) {
 			tmp.add(nums[i]);
 			helper(nums, i + 1, tmp, res); // 从 [] -->[1],求出所有以1开头的子集；
-			tmp.remove(tmp.size() -1 ); // 回溯到初始状态, 即[1]回溯到[0];
+			tmp.remove(tmp.size() - 1); // 回溯到初始状态, 即[1]回溯到[0];
 		}
 
 	}

@@ -24,7 +24,8 @@ public class HappyNumber
 
     public static void main(String[] args)
     {
-        isHappyII(22);
+        System.out.println(isHappyII(23));
+        System.out.println(isHappy(23));
         
     }
     
@@ -33,17 +34,13 @@ public class HappyNumber
     {
         int fast = n;
         int slow = n;
-        int count = 0;
         do
         {
-            count++;
             slow = getSquareSum(slow);
-            System.out.print(slow +"->");
             fast = getSquareSum(fast);
             fast = getSquareSum(fast);
         } while (fast != slow);
-        System.out.println(slow);
-        System.out.println("Count: " + count);
+        
         return fast == 1;
     }
     

@@ -19,49 +19,46 @@ import java.util.Arrays;
 
 import jz.Util;
 
-public class MissingNumber
-{
+public class MissingNumber {
 
-    public static void main(String[] args)
-    {
-        int[] nums = new int[]{0,1,3};
-        Util.printArray(nums);
-        System.out.println(missingNumberII(nums));
+	public static void main(String[] args) {
+		int[] nums = new int[] { 0, 1, 3 };
+		Util.printArray(nums);
+		System.out.println(missingNumber(nums));
 
-    }
-    
-    //binary search
-    public static int missingNumberII(int[] nums) {
-        Arrays.sort(nums);
-        int left = 0; int right = nums.length;
-        while(left < right)
-        {
-            int mid = left + (right - left)/2;
-            if(nums[mid] > mid)
-                right = mid;
-            else
-                left = mid+1;
-        }
-        
-        return left;
-    }
-    
-    //xor
-    public static int missingNumber(int[] nums) {
-        int res = 0;
-        for(int i = 0 ; i < nums.length;i++)
-        {
-            res = res ^ nums[i] ^(i+1);
-        }
-        return res;
-    }
+	}
 
-  //arithmetic progression 等差数列
-    public static int missingNumberIII(int[] nums) {
-       int sum = (nums.length+1)*nums.length/2;
-       for(int num: nums)
-           sum-=num;
-       
-       return sum;
-    }
+	// binary search
+	public static int missingNumberII(int[] nums) {
+		Arrays.sort(nums);
+		int left = 0;
+		int right = nums.length;
+		while (left < right) {
+			int mid = left + (right - left) / 2;
+			if (nums[mid] > mid)
+				right = mid;
+			else
+				left = mid + 1;
+		}
+
+		return left;
+	}
+
+	// xor
+	public static int missingNumber(int[] nums) {
+		int res = 0;
+		for (int i = 0; i < nums.length; i++) {
+			res = res ^ nums[i] ^ (i + 1);
+		}
+		return res;
+	}
+
+	// arithmetic progression 等差数列
+	public static int missingNumberIII(int[] nums) {
+		int sum = (nums.length + 1) * nums.length / 2;
+		for (int num : nums)
+			sum -= num;
+
+		return sum;
+	}
 }

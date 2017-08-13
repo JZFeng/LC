@@ -33,42 +33,39 @@ import jz.tree.bst.BinarySearchTree;
 import jz.tree.bst.TreeNode;
 
 /**
- *@author jzhfeng
- *@date May 13, 2017
-*/
-public class BinaryTreeLevelOrderTraversal
-{
+ * @author jzhfeng
+ * @date May 13, 2017
+ */
+public class BinaryTreeLevelOrderTraversal {
 
-    public static void main(String[] args)
-    {
-        TreeNode root = TreeNode.fromString("1,3,2,5,4,7,6");
-        
-        List<Integer> res = levelOrder(root);
-        System.out.println(res);
-        
-    }
-    
+	public static void main(String[] args) {
+		TreeNode root = TreeNode.fromString("1,3,2,5,4,7,6");
 
-    public static List<Integer> levelOrder(TreeNode root) {
-    	List<Integer> res = new LinkedList<>();
-    	if ( root == null) {
-    		return res;
-    	}
-    	
-    	Queue<TreeNode> queue = new LinkedList<TreeNode>();
-    	queue.offer(root);
-    	while ( !queue.isEmpty() ) {
-    		TreeNode tmp = queue.poll();
-    		res.add(tmp.val);
-    		if (tmp.left != null) {
-    			queue.offer(tmp.left);
-    		}
-    		if (tmp.right != null) {
-    			queue.offer(tmp.right);
-    		}
-    	}
-    	
-    	return res;
-    }
+		List<Integer> res = levelOrder(root);
+		System.out.println(res);
+
+	}
+
+	public static List<Integer> levelOrder(TreeNode root) {
+		List<Integer> res = new LinkedList<>();
+		if (root == null) {
+			return res;
+		}
+
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.offer(root);
+		while (!queue.isEmpty()) {
+			TreeNode tmp = queue.poll();
+			res.add(tmp.val);
+			if (tmp.left != null) {
+				queue.offer(tmp.left);
+			}
+			if (tmp.right != null) {
+				queue.offer(tmp.right);
+			}
+		}
+
+		return res;
+	}
 
 }

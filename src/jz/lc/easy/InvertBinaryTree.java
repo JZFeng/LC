@@ -32,20 +32,20 @@ public class InvertBinaryTree {
 		System.out.println(TreeNode.toString(invertTree(root)));
 
 	}
-	
+
 	public static TreeNode invertTree(TreeNode root) {
-		if(root == null){
+		if (root == null) {
 			return null;
 		}
-		
+
 		TreeNode tmp = root.left;
 		root.left = root.right;
 		root.right = tmp;
 		root.left = invertTree(root.left);
 		root.right = invertTree(root.right);
-		
+
 		return root;
-		
+
 	}
 
 }

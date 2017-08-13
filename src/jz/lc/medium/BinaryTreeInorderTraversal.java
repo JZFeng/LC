@@ -31,46 +31,43 @@ import jz.LinkedList.ListNode;
 import jz.tree.bst.BinarySearchTree;
 import jz.tree.bst.TreeNode;
 
-public class BinaryTreeInorderTraversal
-{
+public class BinaryTreeInorderTraversal {
 
-    public static void main(String[] args)
-    {
-        TreeNode root = TreeNode.fromString("1,2,3,4,5,6,7");
-        BinarySearchTree bst = new BinarySearchTree(root);
-        bst.inOrder();
-        System.out.println();
-        
-        ArrayList<Integer> arraylist =  (ArrayList<Integer>) inorderTraversal(root);
-        Iterator<Integer> itr = arraylist.iterator();
-        while(itr.hasNext()){
-            System.out.print(itr.next() + " ");
-        }
-        
+	public static void main(String[] args) {
+		TreeNode root = TreeNode.fromString("1,2,3,4,5,6,7");
+		BinarySearchTree bst = new BinarySearchTree(root);
+		bst.inOrder();
+		System.out.println();
 
-    }
-    
-    public static List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<Integer>();
-        if(root == null)
-            return res;
-        
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode cur = root;
-        while(!stack.isEmpty() || cur != null ){
-            //save all left nodes;
-            while(cur != null){
-                stack.push(cur);
-                cur = cur.left;
-            }
-            
-            //处理中间节点
-            cur = stack.pop();
-            res.add(cur.val);
-            //处理右节点
-            cur = cur.right;
-        }
-        return res;
-    }
+		ArrayList<Integer> arraylist = (ArrayList<Integer>) inorderTraversal(root);
+		Iterator<Integer> itr = arraylist.iterator();
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
+		}
+
+	}
+
+	public static List<Integer> inorderTraversal(TreeNode root) {
+		List<Integer> res = new ArrayList<Integer>();
+		if (root == null)
+			return res;
+
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+		TreeNode cur = root;
+		while (!stack.isEmpty() || cur != null) {
+			// save all left nodes;
+			while (cur != null) {
+				stack.push(cur);
+				cur = cur.left;
+			}
+
+			// 处理中间节点
+			cur = stack.pop();
+			res.add(cur.val);
+			// 处理右节点
+			cur = cur.right;
+		}
+		return res;
+	}
 
 }

@@ -24,54 +24,49 @@ import jz.LinkedList.ListNode;
  * @author jzhfeng
  * @date May 10, 2017
  */
-public class ReverseLinkedListII
-{
+public class ReverseLinkedListII {
 
-    public static void main(String[] args)
-    {
-        ListNode head = ListNode.listfromArray(new int[]{ 1, 2, 3, 4, 5 });
-        ListNode.printList(head);
-        ListNode.printList(reverseBetween(head, 2, 4));
+	public static void main(String[] args) {
+		ListNode head = ListNode.listfromArray(new int[] { 1, 2, 3, 4, 5 });
+		ListNode.printList(head);
+		ListNode.printList(reverseBetween(head, 2, 4));
 
-    }
+	}
 
-    public static ListNode reverseBetween(ListNode head, int m, int n)
-    {
-        if (head == null)
-            return null;
+	public static ListNode reverseBetween(ListNode head, int m, int n) {
+		if (head == null)
+			return null;
 
-        int i = 1;
+		int i = 1;
 
-        ListNode dummy = new ListNode(Integer.MAX_VALUE);
-        dummy.next = head;
-        
-        ListNode pre = dummy;
-        ListNode cur = head;
-        while (i < m)
-        {
-            pre = cur;
-            cur = cur.next;
-            i++;
-        }
+		ListNode dummy = new ListNode(Integer.MAX_VALUE);
+		dummy.next = head;
 
-        ListNode a = pre;
-        ListNode b = cur;
+		ListNode pre = dummy;
+		ListNode cur = head;
+		while (i < m) {
+			pre = cur;
+			cur = cur.next;
+			i++;
+		}
 
-        while (i <= n)
-        {
-            ListNode nxt = cur.next;
-            cur.next = pre;
-            
-            pre = cur;
-            cur = nxt;
-            i++;
-        }
+		ListNode a = pre;
+		ListNode b = cur;
 
-        a.next = pre;
-        b.next = cur;
+		while (i <= n) {
+			ListNode nxt = cur.next;
+			cur.next = pre;
 
-        return dummy.next;
+			pre = cur;
+			cur = nxt;
+			i++;
+		}
 
-    }
+		a.next = pre;
+		b.next = cur;
+
+		return dummy.next;
+
+	}
 
 }

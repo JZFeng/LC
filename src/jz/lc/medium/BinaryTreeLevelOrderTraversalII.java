@@ -44,10 +44,9 @@ public class BinaryTreeLevelOrderTraversalII {
 		}
 
 	}
-	
 
-    public static List<List<Integer>> levelOrderBottom(TreeNode root) {
-        
+	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
+
 		List<List<Integer>> res = new LinkedList<List<Integer>>();
 
 		if (root == null)
@@ -86,8 +85,6 @@ public class BinaryTreeLevelOrderTraversalII {
 
 		return res;
 
-    }
+	}
 
-	
-	
 }

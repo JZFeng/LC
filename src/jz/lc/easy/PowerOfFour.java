@@ -10,27 +10,28 @@ Follow up: Could you solve it without loops/recursion?
  */
 package jz.lc.easy;
 
-public class PowerOfFour
-{
+public class PowerOfFour {
 
-    public static void main(String[] args)
-    {
-        System.out.println(isPowerOfFourII(16));
-    }
-    
-    public static boolean isPowerOfFour(int num) {
-        if(num < 1) return false;
-        while(num > 0 && num%4 == 0)
-            num = num/4;
-        
-        return num == 1;
-    }
+	public static void main(String[] args) {
+		System.out.println(isPowerOfFourII(16));
+	}
 
-    //0x7FFFFFFF is the Integer_MAX_VALUE
-    //0X55555555 is 01010101010101010101010101010101
-    public static boolean isPowerOfFourII(int num) {
-//      return (num & num-1)==0 && (num&0x55555555)==num;
-        return (num & num-1)==0 && (num -1)%3 ==0;
-    }
-    
+	public static boolean isPowerOfFour(int num) {
+		if (num < 1) {
+			return false;
+		}
+		while (num > 0 && num % 4 == 0) {
+			num = num / 4;
+		}
+
+		return num == 1;
+	}
+
+	// 0x7FFFFFFF is the Integer_MAX_VALUE
+	// 0X55555555 is 01010101010101010101010101010101
+	public static boolean isPowerOfFourII(int num) {
+		// return (num & num-1)==0 && (num&0x55555555)==num;
+		return (num & num - 1) == 0 && (num - 1) % 3 == 0;
+	}
+
 }

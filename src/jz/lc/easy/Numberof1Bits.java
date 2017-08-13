@@ -19,7 +19,7 @@ public class Numberof1Bits
 
     public static void main(String[] args)
     {
-        System.out.println(hammingWeight(11));
+        System.out.println(hammingWeightII(11));
 
     }
      
@@ -34,4 +34,12 @@ public class Numberof1Bits
         return count;
     }
 
+    public static int hammingWeightII(int n) {
+    	int count = 0 ; 
+    	while(n != 0 ) {
+    		count++;
+    		n =  n & (n - 1);
+    	}
+    	return count;
+    }
 }

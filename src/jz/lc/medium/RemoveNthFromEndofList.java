@@ -17,49 +17,44 @@ Try to do this in one pass.
 
  */
 
-
 package jz.lc.medium;
 
 import jz.LinkedList.ListNode;
 
 /**
- *@author jzhfeng
- *@date May 10, 2017
+ * @author jzhfeng
+ * @date May 10, 2017
  */
-public class RemoveNthFromEndofList
-{
+public class RemoveNthFromEndofList {
 
-    public static void main(String[] args)
-    {
+	public static void main(String[] args) {
 
-        ListNode head = ListNode.listfromArray(new int[]{ 1, 2, 3, 4, 5 });
-        ListNode.printList(head);
-        ListNode.printList(removeNthFromEnd(head, 2));
+		ListNode head = ListNode.listfromArray(new int[] { 1, 2, 3, 4, 5 });
+		ListNode.printList(head);
+		ListNode.printList(removeNthFromEnd(head, 2));
 
-    }
-    
-    public static ListNode removeNthFromEnd(ListNode head, int k) 
-    {
-        if(head == null)
-            return null;
-        
-        int size = ListNode.size(head);
-        int count = 1;
-        ListNode dummy = new ListNode(Integer.MAX_VALUE);
-        dummy.next = head;
-        ListNode pre = dummy;
-        ListNode cur = head;
-                
-        while(count < size-k +1)
-        {
-            pre = cur;
-            cur = cur.next;
-            count++;
-        }
-        
-        pre.next = cur.next;
-     
-        return dummy.next;
-    }
+	}
+
+	public static ListNode removeNthFromEnd(ListNode head, int k) {
+		if (head == null)
+			return null;
+
+		int size = ListNode.size(head);
+		int count = 1;
+		ListNode dummy = new ListNode(Integer.MAX_VALUE);
+		dummy.next = head;
+		ListNode pre = dummy;
+		ListNode cur = head;
+
+		while (count < size - k + 1) {
+			pre = cur;
+			cur = cur.next;
+			count++;
+		}
+
+		pre.next = cur.next;
+
+		return dummy.next;
+	}
 
 }

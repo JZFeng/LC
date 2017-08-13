@@ -30,38 +30,28 @@ The input is assumed to be a 32-bit signed integer. Your function should return 
 package jz.lc.easy;
 
 /**
- *@author jzhfeng
- *@date May 10, 2017
-*/
-public class ReverseInteger
-{
+ * @author jzhfeng
+ * @date May 10, 2017
+ */
+public class ReverseInteger {
 
-    public static void main(String[] args)
-    {
-        System.out.println(reverse(-123));
+	public static void main(String[] args) {
+		System.out.println(reverse(123));
 
-    }
+	}
 
-    public static int reverse(int x)
-    {
-        int res = 0;
-        
-        while(x != 0)
-        {
-            int tail = x % 10;
-            
-            int newResult = res * 10 + tail;
-            
-            if((newResult - tail)/10 != res)
-                return 0;
-            
-            res = newResult;
-            
-            x = x/10;
-            
-        }
-        
-        return res;
+	public static int reverse(int x) {
+		int res = 0;
+		while (x != 0) {
+			int tail = x % 10;
+			int newResult = res * 10 + tail;
+			if ((newResult - tail) / 10 != res)
+				return 0;
+			res = newResult;
+			x = x / 10;
+		}
 
-    }
+		return res;
+
+	}
 }

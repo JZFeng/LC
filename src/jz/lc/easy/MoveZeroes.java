@@ -22,68 +22,32 @@ import jz.Util;
  * @author jzhfeng
  * @date May 11, 2017
  */
-public class MoveZeroes
-{
+public class MoveZeroes {
 
-    public static void main(String[] args)
-    {
-    	HashSet<Integer> set = new HashSet<>();
-    	
-        int[] a = new int[]
-        {0,1,0,3,12};
-        Util.printArray(a);
-        moveZeroes(a);
-        Util.printArray(a);
+	public static void main(String[] args) {
+		HashSet<Integer> set = new HashSet<>();
 
-    }
+		int[] a = new int[] { 0, 1, 0, 3, 12 };
+		Util.printArray(a);
+		moveZeroes(a);
+		Util.printArray(a);
 
-    public static void moveZeroes(int[] a)
-    {
-        int j = 0;
-        for(int i = 0 ; i <a.length; i++)
-        {
-            if(a[i] != 0)
-            {
-                swap(a,i,j);
-                j++;
-            }
-        }
-    }
-    
-    public static void moveZeroesII(int[] a)
-    {
-        if (a == null || a.length < 2)
-            return;
+	}
 
-        int i = 0;
-        int j = 0;
-
-        while (j < a.length)
-        {
-            if ((a[i] != 0))
-                i++;
-            if (a[j] == 0)
-                j++;
-            if (i < j)
-            {
-                swap(a, i, j);
-                j++;
-            }
-            else
-            {
-                j++;
-            }
-
-        }
-
-    }
-
-    
-    private static void swap(int[] a, int i, int j)
-    {
-        int tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
-    }
+	public static void moveZeroes(int[] nums) {
+		int i = 0;
+		int j = 0;
+		while (j < nums.length) {
+			if (nums[j] == 0) {
+				j++;
+			} else {
+				int tmp = nums[i];
+				nums[i] = nums[j];
+				nums[j] = tmp;
+				i++;
+				j++;
+			}
+		}
+	}
 
 }

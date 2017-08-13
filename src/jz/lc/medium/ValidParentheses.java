@@ -19,41 +19,37 @@ import java.util.Stack;
  * @author jzhfeng
  * @date May 10, 2017
  */
-public class ValidParentheses
-{
+public class ValidParentheses {
 
-    public static void main(String[] args)
-    {
-        System.out.println(isValid("}"));
+	public static void main(String[] args) {
+		System.out.println(isValid("}"));
 
-    }
+	}
 
-    public static boolean isValid(String s)
-    {
-        if (s == null || s.length() == 0)
-            return true;
-        
-        if (s.length() % 2 != 0)
-            return false;
+	public static boolean isValid(String s) {
+		if (s == null || s.length() == 0)
+			return true;
 
-        Stack<Character> stack = new Stack<Character>();
-        for (int i = 0; i < s.length(); i++)
-        {
-            char c = s.charAt(i);
-            if (c == '[' || c == '(' || c == '{')
-                stack.push(c);
+		if (s.length() % 2 != 0)
+			return false;
 
-            else if (!stack.isEmpty())
-            {
-                if ((c == ']' && stack.peek() != '[') || (c == ')' && stack.peek() != '(') || (c == '}' && stack.peek() != '{'))
-                    return false;
+		Stack<Character> stack = new Stack<Character>();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (c == '[' || c == '(' || c == '{')
+				stack.push(c);
 
-                stack.pop();
-            }
-        }
-        
-        return stack.isEmpty();
+			else if (!stack.isEmpty()) {
+				if ((c == ']' && stack.peek() != '[') || (c == ')' && stack.peek() != '(')
+						|| (c == '}' && stack.peek() != '{'))
+					return false;
 
-    }
+				stack.pop();
+			}
+		}
+
+		return stack.isEmpty();
+
+	}
 
 }
