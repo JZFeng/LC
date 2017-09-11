@@ -33,7 +33,6 @@ public class ValidPalindrome {
 		if (s == null || s.length() <= 1)
 			return true;
 
-		s = s.toLowerCase();
 
 		int i = 0;
 		int j = s.length() - 1;

@@ -36,22 +36,22 @@ package jz.lc.easy;
 public class ReverseInteger {
 
 	public static void main(String[] args) {
-		System.out.println(reverse(123));
-
+		System.out.println(reverse(-123));
 	}
 
-	public static int reverse(int x) {
-		int res = 0;
-		while (x != 0) {
-			int tail = x % 10;
-			int newResult = res * 10 + tail;
-			if ((newResult - tail) / 10 != res)
+	public static int reverse(int n) {
+		int result = 0;
+		while (n != 0) {
+			int tail = n % 10;
+			int tmp = result * 10 + tail;
+			if (tmp / 10 != result) {
 				return 0;
-			res = newResult;
-			x = x / 10;
+			}
+			result = tmp;
+			n = n / 10;
+
 		}
 
-		return res;
-
+		return result;
 	}
 }

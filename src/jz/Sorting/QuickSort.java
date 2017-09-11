@@ -4,7 +4,7 @@ import jz.Util;
 
 public class QuickSort {
 	public static void main(String[] args) {
-		int[] nums = new int[]{1,2,2,2,4,3,6,5};
+		int[] nums = new int[]{1,3,2,4};
 		Util.printArray(nums);
 		sortInteger(nums);
 		Util.printArray(nums);
@@ -20,8 +20,8 @@ public class QuickSort {
 		}
 		
 		int p = partition( nums, start, end);
-		quickSortII(nums, start, p);
-		quickSortII(nums, p + 1, end );
+		quickSortII(nums, start, p - 1);
+		quickSortII(nums, p , end);
 	}
 	
 	private static int partition( int[] nums, int start , int end ) {
@@ -49,7 +49,7 @@ public class QuickSort {
 			}
 		}
 
-		return left - 1;
+		return left;
 	}
 	
 	

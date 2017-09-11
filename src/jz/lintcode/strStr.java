@@ -7,8 +7,8 @@ package jz.lintcode;
 public class strStr {
 
 	public static void main(String[] args) {
-		String source = "abcdef";
-		String target = "cde";
+		String source = "abcdabcdefg";
+		String target = "bcd";
 		System.out.println(strStr(source,target));
 
 	}

@@ -30,7 +30,7 @@ public class MaximumProductSubarray {
 			min = Math.min(Math.min(tmp * nums[i], nums[i]), min * nums[i]);
 			global_max = Math.max(max, global_max);
 		}
-
+		
 		return global_max;
 
 	}
