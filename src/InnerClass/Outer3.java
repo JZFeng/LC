@@ -1,34 +1,29 @@
 package InnerClass;
 
-/*3¡¢ÄäÃûÄÚ²¿Àà
- ÄäÃûÄÚ²¿Àà×÷ÎªÒ»ÖÖÌØÊâµÄÄÚ²¿Àà£¬³ýÁË¾ßÓÐÆÕÍ¨ÄÚ²¿ÀàµÄÌØµã£¬»¹ÓÐ×Ô¼ºµÄÒ»Ð©¶ÀÓÐÌØÐÔ£º
- ÄäÃûÄÚ²¿Àà±ØÐëÀ©Õ¹Ò»¸ö»ùÀà»òÊµÏÖÒ»¸ö½Ó¿Ú£¬µ«ÊÇ²»ÄÜÓÐÏÔÊ½µÄextendsºÍimplements×Ó¾ä£»
- ÄäÃûÄÚ²¿Àà±ØÐëÊµÏÖ¸¸ÀàÒÔ¼°½Ó¿ÚÖÐµÄËùÓÐ³éÏó·½·¨£»
- ÄäÃûÄÚ²¿Àà×ÜÊÇÊ¹ÓÃ¸¸ÀàµÄÎÞ²Î¹¹Ôì·½·¨À´´´½¨ÊµÀý¡£Èç¹ûÊÇÊµÏÖÁËÒ»¸ö½Ó¿Ú£¬ÔòÆä¹¹Ôì·½·¨ÊÇObject()£»
- ÄäÃûÄÚ²¿Àà±àÒëºóµÄÃüÃûÎª£ºOuterClass$n.class£¬ÆäÖÐnÊÇÒ»¸ö´Ó1¿ªÊ¼µÄÕûÊý£¬Èç¹ûÔÚÒ»¸öÀàÖÐ¶¨ÒåÁË¶à¸öÄäÃûÄÚ²¿Àà£¬
- Ôò°´ÕÕËûÃÇµÄ³öÏÖË³Ðò´Ó1¿ªÊ¼ÅÅºÅ¡£
+/*3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½
+ ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½à£¬ï¿½ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½Øµã£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½
+ ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ó¿Ú£ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½extendsï¿½ï¿½implementsï¿½Ó¾ä£»
+ ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ó¿ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ó·½·ï¿½ï¿½ï¿½
+ ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½Þ²Î¹ï¿½ï¿½ì·½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ó¿Ú£ï¿½ï¿½ï¿½ï¿½ä¹¹ï¿½ì·½ï¿½ï¿½ï¿½ï¿½Object()ï¿½ï¿½
+ ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½OuterClass$n.classï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½à£¬
+ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÄ³ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½1ï¿½ï¿½Ê¼ï¿½ÅºÅ¡ï¿½
  */
-abstract class A
-{
+abstract class A {
     abstract public void sayHello();
 }
 
-class Outer3
-{
-    public static void main(String[] args)
-    {
-        new Outer3().callInner(new A()
-        {
-            public void sayHello()
-            {
-                System.out.println(this); // the object created from the anonymous Inner
-                System.out.println("Hello!");
-            }
-        });
+class Outer3 {
+    public static void main(String[] args) {
+	new Outer3().callInner(new A() {
+	    public void sayHello() {
+		System.out.println(this); // the object created from the
+					  // anonymous Inner
+		System.out.println("Hello!");
+	    }
+	});
     }
 
-    public void callInner(A a)
-    {
-        a.sayHello();
+    public void callInner(A a) {
+	a.sayHello();
     }
 }
