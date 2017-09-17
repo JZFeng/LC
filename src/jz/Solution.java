@@ -1,31 +1,30 @@
 package jz;
 
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Solution {
 	
-	public static void main(String[] args) {
-		int[] nums = new int[]{1,2,3,4,5,6,8,9,10,7};
-		System.out.print(kthSmallest(10, nums));
+	public static void main(String[] args) throws IOException {
+	    File f = new File(".");
+	    printFile(f);
 	}
 	
-	public static int kthSmallest(int k, int[] nums) {
-		PriorityQueue<Integer> pq = new PriorityQueue<>(k, new Comparator<Integer>(){
-			public int compare(Integer o1, Integer o2) {
-				return o2 - o1;
-			}
-		});
-		
-		for(int num : nums) {
-			pq.offer(num);
-			if ( pq.size() > k) {
-				pq.poll();
-			}
+	private static void printFile(File f) {
+	    if(f != null) {
+		if( f.isDirectory()) {
+		    File[] files = f.listFiles();
+		    for(File tmp : files) {
+			printFile(tmp);
+		    }
+		} else {
+		    System.out.println(f);
 		}
-		
-		return pq.peek();
-		
+	    }
 	}
+	
 }
