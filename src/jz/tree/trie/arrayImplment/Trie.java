@@ -1,62 +1,91 @@
 package jz.tree.trie.arrayImplment;
 
-/**
- * <p>
- * 最简单的Trie树结构，仅表示出Trie树的结构，实际应用需进行扩展
- * </p>
- *
- */
+class TrieNode {
+    // Initialize your data structure here.
+    char value;
+    TrieNode[] children = new TrieNode[26];
+    boolean isLeaf;
+
+    public TrieNode(char c) {
+	this.value = c;
+	this.isLeaf = false;
+    }
+}
+
 public class Trie {
-    protected TrieNode root = new TrieNode('a');// TrieTree的根节点
-
-    /**
-     * 插入
-     * 
-     * @param word
-     */
-    public void insertWord(String word) {
-        TrieNode index = this.root;
-        for (char c : word.toLowerCase().toCharArray()) {
-            index = index.addChild(c);
-        }
-        return;
-    }
-
-    /**
-     * TrieTree的节点
-     */
-    private class TrieNode {
-        /** 该节点的字符 */
-        private final char nodeChar;//
-        /** 一个TrieTree的节点的子节点 */
-        private TrieNode[] childNodes = null;
-
-        public TrieNode(char nodeChar) {
-            super();
-            this.nodeChar = nodeChar;
-        }
-
-        public TrieNode addChild(char ch) {
-            int index = ch - 'a';
-            if (null == childNodes) {
-                this.childNodes = new TrieNode[26];
-            }
-            if (null == childNodes[index]) {
-                childNodes[index] = new TrieNode(ch);
-            }
-            return childNodes[index];
-        }
-
-        @Override
-        public String toString() {
-            return "TrieNode [nodeChar=" + nodeChar + "]";
-        }
-
-    }
+    private TrieNode root;
 
     public static void main(String[] args) {
-        Trie trie = new Trie();
-        trie.insertWord("Vicky");
-        System.out.println("1");
+	Trie trie = new Trie();
+	trie.insert("lintcode");
+	trie.insert("word");
+	System.out.println(trie.search("Word"));
+	System.out.println(trie.startsWith("lint"));
+    }
+    
+    public Trie() {
+	// do intialization if necessary
+	root = new TrieNode(' ');
+    }
+
+    /*
+     * @param word: a word
+     * 
+     * @return: nothing
+     */
+    public void insert(String word) {
+	// write your code here
+	char[] data = word.toLowerCase().toCharArray();
+	TrieNode cur = root;
+	for (int i = 0; i < data.length; i++) {
+	    int index = data[i] - 'a';
+	    if (cur.children[index] == null) {
+		cur.children[index] = new TrieNode(data[i]);
+	    }
+	    cur = cur.children[index];
+	}
+	cur.isLeaf = true;
+    }
+
+    /*
+     * @param word: A string
+     * 
+     * @return: if the word is in the trie.
+     */
+    public boolean search(String word) {
+	// write your code here
+	char[] data = word.toLowerCase().toCharArray();
+	TrieNode cur = root;
+	for (int i = 0; i < data.length; i++) {
+	    int index = data[i] - 'a';
+	    if (cur.children[index] == null) {
+		return false;
+	    }
+	    cur = cur.children[index];
+	}
+
+	return cur.isLeaf;
+    }
+
+    /*
+     * @param prefix: A string
+     * 
+     * @return: if there is any word in the trie that starts with the given
+     * prefix.
+     */
+    public boolean startsWith(String prefix) {
+	// write your code here
+	char[] data = prefix.toLowerCase().toCharArray();
+	TrieNode cur = root;
+	for (int i = 0; i < data.length; i++) {
+	    int index = data[i] - 'a';
+	    if (cur.children[index] == null) {
+		return false;
+	    }
+	    cur = cur.children[index];
+	}
+
+	return true;
+
     }
 }
