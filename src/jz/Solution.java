@@ -1,30 +1,24 @@
 package jz;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.io.*;
+import java.util.*;
 
 public class Solution {
-	
-	public static void main(String[] args) throws IOException {
-	    File f = new File(".");
-	    printFile(f);
-	}
-	
-	private static void printFile(File f) {
-	    if(f != null) {
-		if( f.isDirectory()) {
-		    File[] files = f.listFiles();
-		    for(File tmp : files) {
-			printFile(tmp);
-		    }
-		} else {
-		    System.out.println(f);
-		}
+    /*
+     * The function assumes that there are at least two elements in array. The
+     * function returns a negative value if the array is sorted in decreasing
+     * order. Returns 0 if elements are equal
+     */
+    int maxDiff(int arr[], int arr_size) {
+	int maxDiff = arr[1] - arr[0];
+	int i, j;
+	for (i = 0; i < arr_size; i++) {
+	    for (j = i + 1; j < arr_size; j++) {
+		if (arr[j] - arr[i] > maxDiff)
+		    maxDiff = arr[j] - arr[i];
 	    }
 	}
 	
+	return maxDiff;
+    }
 }
