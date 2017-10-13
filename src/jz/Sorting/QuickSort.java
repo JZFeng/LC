@@ -29,6 +29,8 @@ public class QuickSort {
     }
 
     //partition function , RETURN VALUE IS ALWAYS "left";
+    //快速排序，partition的返回值 是以Pivot为中轴partition之后， nums[index]及之后的元素都 大于等于Pivot；
+    //the return value of partition function is NOT the position of Pivot !!!!!!
     private static int partition(int[] nums, int start, int end) {
 	if (start >= end) {
 	    return -1;
