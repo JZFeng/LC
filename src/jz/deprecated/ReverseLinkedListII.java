@@ -1,4 +1,4 @@
-package jz.lc;
+package jz.deprecated;
 
 import jz.LinkedList.ListNode;
 
