@@ -10,7 +10,7 @@ Given 1->1->2, return 1->2.
 Given 1->1->2->3->3, return 1->2->3.
  
  */
-package jz.lc;
+package jz.deprecated;
 
 import jz.LinkedList.ListNode;
 

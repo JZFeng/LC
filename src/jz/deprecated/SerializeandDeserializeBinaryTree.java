@@ -24,7 +24,7 @@ Note: Do not use class member/global/static variables to store states.
 Your serialize and deserialize algorithms should be stateless.
 
  */
-package jz.lc;
+package jz.deprecated;
 
 import java.util.ArrayDeque;
 import java.util.LinkedList;

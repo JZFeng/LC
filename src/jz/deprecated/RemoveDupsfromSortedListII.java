@@ -10,7 +10,7 @@ Given 1->2->3->3->4->4->5, return 1->2->5.
 Given 1->1->1->2->3, return 2->3.
  *
  */
-package jz.lc;
+package jz.deprecated;
 
 import jz.LinkedList.ListNode;
 
@@ -28,30 +28,32 @@ public class RemoveDupsfromSortedListII {
 
 	// User three pointers, pre, cur,nxt;
 	public static ListNode deleteDuplicatesII(ListNode head) {
-		ListNode dummy = new ListNode(Integer.MAX_VALUE);
+
+		if (head == null || head.next == null) {
+			return head;
+		}
+
+		ListNode dummy = new ListNode(0);
 		dummy.next = head;
 		ListNode pre = dummy;
 		ListNode cur = head;
-		ListNode nxt = cur.next;
-
-		boolean oktoDel = false;
-		while (cur.next != null) {
-			if (cur.val == nxt.val) {
-				oktoDel = true;
-				nxt = nxt.next;
-				if (nxt == null)
-					pre.next = null;
+		int count = 1;
+		while (cur != null && cur.next != null) {
+			if (cur.val == cur.next.val) {
+				cur = cur.next;
+				count++;
+			} else if (count > 1) {
+				pre.next = cur.next;
+				cur = cur.next;
+				count = 1;
 			} else {
-				if (oktoDel) {
-					pre.next = nxt;
-					cur = nxt;
-					nxt = nxt.next;
-				} else {
-					pre = cur;
-					cur = cur.next;
-					nxt = nxt.next;
-				}
+				pre = cur;
+				cur = cur.next;
 			}
+		}
+
+		if (count > 1) {
+			pre.next = null;
 		}
 
 		return dummy.next;

@@ -13,7 +13,7 @@ return 2.
 Note: You may assume the string contain only lowercase letters.
  */
 
-package jz.lc;
+package jz.deprecated;
 
 import java.util.HashMap;
 import java.util.Iterator;
