@@ -1,4 +1,4 @@
-package jz.lc.jiuzhang;
+package jz.NineChapter;
 
 /*
  http://lintcode.com/en/problem/find-peak-element/
