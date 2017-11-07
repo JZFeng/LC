@@ -7,7 +7,7 @@ The length of the target string is m and the length of the source string is n.
 If target does not exist in source, just return -1.
   
  */
-package jz.Deprecated;
+package jz.NineChapter;
 
 public class StrStrII {
 
