@@ -9,7 +9,7 @@ Follow up:
 Could you do it without using any loop / recursion?
  
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 public class PowerofThree {
 

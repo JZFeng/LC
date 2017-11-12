@@ -6,10 +6,35 @@ public class RemoveExcessiveWhiteSpace {
 		String s = "abc  def   jhk   abcc";
 		System.out.println(removeExcessiveWhiteSpace(s));
 		System.out.println(removeExcessiveWhiteSpaceII(s));
-		
+
 	}
-	
+
 	public static String removeExcessiveWhiteSpace(String s) {
+		StringBuilder sb = new StringBuilder();
+		int i = 0;
+		int j = 0;
+		s = s.trim();
+		while (j < s.length()) {
+			while (i < s.length() && s.charAt(i) == ' ') {
+				i++;
+			}
+			while (j < s.length() && s.charAt(j) != ' ') {
+				j++;
+			}
+			if (i < j) {
+				sb.append(s.substring(i, j));
+				sb.append(" ");
+				i = j;
+				j = j + 1;
+			} else {
+				j++;
+			}
+		}
+
+		return sb.toString();
+	}
+
+	public static String removeExcessiveWhiteSpaceII(String s) {
 		s = s.trim();
 		StringBuilder sb = new StringBuilder();
 		int i = 0;
@@ -22,29 +47,4 @@ public class RemoveExcessiveWhiteSpace {
 		sb.append(s.charAt(i));
 		return sb.toString().trim();
 	}
-	
-	public static String removeExcessiveWhiteSpaceII(String s) {
-		StringBuilder sb = new StringBuilder();
-		int i = 0 ;
-		int j = 0 ;
-		s = s.trim();
-		while(j < s.length()) {
-			while(j < s.length() && s.charAt(j) != ' ') {
-				j++;
-			}
-			while(i < s.length() && s.charAt(i) == ' ' ) {
-				i++;
-			}
-			if( i < j) {
-				sb.append(s.substring(i, j));
-				sb.append(" ");
-				i = j;
-				j = j + 1;
-			} else {
-				j++;
-			}
-		}
-		return sb.toString();
-	}
-
 }

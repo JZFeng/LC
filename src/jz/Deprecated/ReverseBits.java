@@ -12,7 +12,7 @@ Follow up:
 If this function is called many times, how would you optimize it?
  
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 public class ReverseBits {
 
