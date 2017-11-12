@@ -2,7 +2,7 @@
  https://leetcode.com/problems/compare-version-numbers/description/
   
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 public class CompareVersionNumbers {
 	public int compareVersion(String version1, String version2) {

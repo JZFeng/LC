@@ -4,7 +4,7 @@
  Question: You are given two numbers A and B. 
  Write a program to count number of bits needed to be flipped to convert A to B.
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 /**
  *@author jzhfeng

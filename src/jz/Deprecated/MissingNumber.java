@@ -13,7 +13,7 @@ Could you implement it using only constant extra space complexity?
  
   
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 import java.util.Arrays;
 

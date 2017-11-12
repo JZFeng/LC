@@ -8,7 +8,7 @@ Description:
 Count the number of prime numbers less than a non-negative number, n.
 
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 import jz.Util;
 
@@ -31,8 +31,9 @@ public class CountPrime {
 		for (int i = 2; i * i < n; i++) // 固定一端。
 		{
 			if (notPrime[i] == false) {
-				for (int j = i; i * j < n; j++)
+				for (int j = i; i * j < n; j++) {
 					notPrime[i * j] = true;
+				}
 			}
 		}
 
@@ -40,7 +41,6 @@ public class CountPrime {
 		for (int i = 0; i < notPrime.length; i++) {
 			if (notPrime[i] == false) {
 				System.out.print(i + ", ");
-
 				count++;
 			}
 		}

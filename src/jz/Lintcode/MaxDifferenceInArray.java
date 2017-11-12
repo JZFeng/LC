@@ -6,18 +6,21 @@ public class MaxDifferenceInArray {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public int maxDiff(int arr[], int arr_size) {
-		int maxDiff = arr[1] - arr[0];
-		int i, j;
-		for (i = 0; i < arr_size; i++) {
-			for (j = i + 1; j < arr_size; j++) {
-				if (arr[j] - arr[i] > maxDiff)
-					maxDiff = arr[j] - arr[i];
-			}
+
+	public int maxDiff(int[] nums) {
+		if (nums == null || nums.length < 2) {
+			return 0;
 		}
 
-		return maxDiff;
+		int max_diff = Integer.MIN_VALUE;
+		int min = nums[0];
+		for (int i = 0; i < nums.length; i++) {
+			max_diff = Math.max(max_diff, nums[i] - min);
+			min = Math.min(min, nums[i]);
+		}
+
+		return max_diff;
+
 	}
 
 }

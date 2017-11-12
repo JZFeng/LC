@@ -1,4 +1,4 @@
-package jz.Lintcode;
+package jz.Deprecated;
 
 public class Fibonacci
 {

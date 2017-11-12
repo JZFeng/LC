@@ -12,7 +12,7 @@ so the function should return 3.
 
  
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 public class Numberof1Bits
 {
