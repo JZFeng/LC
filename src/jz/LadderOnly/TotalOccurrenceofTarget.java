@@ -5,38 +5,79 @@ package jz.LadderOnly;
  */
 public class TotalOccurrenceofTarget {
 
-	public int totalOccurrence(int[] A, int target) {
-		// write your code here
-		if (A == null || A.length == 0) {
+	public int totalOccurrence(int[] nums, int target) {
+		if (nums == null || nums.length == 0) {
 			return 0;
 		}
-		if ((A[A.length - 1] < target) || (A[0] > target)) {
-			return 0;
-		}
-		int start = 0;
-		int end = A.length - 1;
-		while (start + 1 < end) {
-			int mid = start + (end - start) / 2;
-			if (A[mid] < target) {
-				start = mid;
-			} else {
-				end = mid;
-			}
-		}
-		int firstTarget = A[start] == target ? start : end;
 
-		start = 0;
-		end = A.length - 1;
+		int firstIndex = firstIndex(nums, target);
+		int lastIndex = lastIndex(nums, target);
+
+		if (firstIndex != -1 && lastIndex != -1) {
+			return lastIndex - firstIndex + 1;
+		}
+
+		return 0;
+
+	}
+
+	private int firstIndex(int[] nums, int target) {
+
+		if (nums == null || nums.length == 0) {
+			return -1;
+		}
+
+		int start = 0;
+		int end = nums.length - 1;
 		while (start + 1 < end) {
 			int mid = start + (end - start) / 2;
-			if (A[mid] > target) {
+			if (nums[mid] == target) {
 				end = mid;
+			} else if (nums[mid] > target) {
+				end = mid;
+			} else if (nums[mid] < target) {
+				start = mid;
+			}
+		}
+
+		if (nums[start] == target) {
+			return start;
+		}
+		if (nums[end] == target) {
+			return end;
+		}
+
+		return -1;
+	}
+
+	private int lastIndex(int[] nums, int target) {
+
+		if (nums == null || nums.length == 0) {
+			return -1;
+		}
+
+		int start = 0;
+		int end = nums.length - 1;
+		while (start + 1 < end) {
+			int mid = start + (end - start) / 2;
+			if (nums[mid] > target) {
+				end = mid;
+			} else if (nums[mid] < target) {
+				start = mid;
 			} else {
 				start = mid;
 			}
 		}
-		int lastTarget = A[end] == target ? end : start;
-		return lastTarget - firstTarget >= 0 ? lastTarget - firstTarget + 1 : 0;
+
+		if (nums[end] == target) {
+			return end;
+		}
+		if (nums[start] == target) {
+			return start;
+		}
+
+		return -1;
+
 	}
 
 }
