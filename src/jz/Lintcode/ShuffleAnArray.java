@@ -26,60 +26,35 @@ import java.util.Random;
 import jz.Util;
 
 public class ShuffleAnArray {
-
-	public static void main(String[] args) {
-		int nums[] = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		ShuffleAnArray sfa = new ShuffleAnArray(nums);
-		Util.printArray(sfa.shuffle());
-		Util.printArray(randSelect(nums, 5));
-	}
-
 	private int[] nums;
+	private Random random;
 
 	public ShuffleAnArray(int[] nums) {
-		this.nums = nums;
-
-	}
+        this.nums = nums;
+        random = new Random();
+    }
 
 	/** Resets the array to its original configuration and return it. */
 	public int[] reset() {
-		return this.nums;
-
+		return nums;
 	}
 
 	/** Returns a random shuffling of the array. */
 	public int[] shuffle() {
 		if (nums == null)
 			return null;
-
-		Random rd = new Random();
-		int[] nums = this.nums.clone();
-		for (int j = 0; j < nums.length; j++) {
-			int tmp = rd.nextInt(j + 1);
-			swap(nums, tmp, j);
+		int[] a = nums.clone();
+		for (int i = 0; i < a.length; i++) {
+			int index = random.nextInt(i + 1);
+			swap(a, i, index);
 		}
-
-		return nums;
-
+		return a;
 	}
 
-	public static int[] randSelect(int[] nums, int n) {
-		int[] res = new int[n];
-		Random rd = new Random();
-		if (nums.length >= n) {
-			for (int i = 0; i < n; i++) {
-				swap(nums, i, rd.nextInt(nums.length - i) + i);
-				res[i] = nums[i];
-			}
-		}
-
-		return res;
-	}
-
-	private static void swap(int[] a, int i, int j) {
-		int tmp = a[i];
+	private void swap(int[] a, int i, int j) {
+		int t = a[i];
 		a[i] = a[j];
-		a[j] = tmp;
+		a[j] = t;
 	}
 
 }
