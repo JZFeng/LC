@@ -23,10 +23,11 @@ import java.util.List;
 public class PascalTriangle {
 
 	public static void main(String[] args) {
-
-		List<List<Integer>> res = new ArrayList<List<Integer>>();
-		res = generate(1);
-
+		List<Integer> list = new ArrayList<>();
+		list.add(1);list.add(2);list.add(1);
+		System.out.println(list);
+		list = getNextRow(list);
+		System.out.println(list);
 	}
 
 	public static List<List<Integer>> generate(int numRows) {
@@ -34,12 +35,12 @@ public class PascalTriangle {
 		if (numRows <= 0)
 			return null;
 
-		ArrayList<Integer> origin = new ArrayList<Integer>();
+		List<Integer> origin = new ArrayList<Integer>();
 		origin.add(1);
 		res.add(origin);
 
 		for (int i = 1; i < numRows; i++) {
-			origin = helper(origin);
+			origin = getNextRow(origin);
 			res.add(origin);
 		}
 
@@ -48,18 +49,15 @@ public class PascalTriangle {
 	}
 
 	// [1,2,1] --> 1,3,3,1
-	private static ArrayList<Integer> helper(ArrayList<Integer> a) {
-		ArrayList<Integer> res = new ArrayList<Integer>();
-		int i = 0;
-		for (; i < a.size(); i++) {
-			if (i == 0)
-				res.add(a.get(i));
-			else {
-				res.add(a.get(i) + a.get(i - 1));
-			}
+	
+	private static List<Integer> getNextRow(List<Integer> list) {
+		List<Integer> res = new ArrayList<>();
+		res.add(1);
+		for(int i = 1; i < list.size(); i++ ) {
+			int tmp = list.get(i) + list.get(i - 1);
+			res.add(tmp);
 		}
-		res.add(a.get(i - 1));
+		res.add(1);
 		return res;
 	}
-
 }
