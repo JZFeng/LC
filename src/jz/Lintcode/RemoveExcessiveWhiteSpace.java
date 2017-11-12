@@ -31,7 +31,7 @@ public class RemoveExcessiveWhiteSpace {
 			}
 		}
 
-		return sb.toString();
+		return sb.toString().trim();
 	}
 
 	public static String removeExcessiveWhiteSpaceII(String s) {
