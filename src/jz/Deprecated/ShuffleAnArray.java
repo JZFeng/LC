@@ -19,7 +19,7 @@ solution.reset();
 solution.shuffle(); 
  */
 
-package jz.Lintcode;
+package jz.Deprecated;
 
 import java.util.Random;
 
