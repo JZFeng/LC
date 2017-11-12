@@ -14,7 +14,7 @@ Return
  [1,4,6,4,1]
 ] 
  */
-package jz.Lintcode;
+package jz.Deprecated;
 
 import java.util.ArrayList;
 import java.util.Iterator;
