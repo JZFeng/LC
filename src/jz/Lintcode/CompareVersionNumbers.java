@@ -5,23 +5,39 @@
 package jz.Lintcode;
 
 public class CompareVersionNumbers {
+	public int compareVersion(String version1, String version2) {
 
-    // 1.1 < 2.0
-    public int compareVersion(String v1, String v2) {
-	String[] a1 = v1.split("\\."); //attention !! split("\\.") NOT split(".");
-	String[] a2 = v2.split("\\.");
-	int maxLength = Math.max(a1.length, a2.length); //attention !! a1.length NOT v1.length();
+		String[] v1 = version1.split("\\.");
+		String[] v2 = version2.split("\\.");
+		int i = 0;
+		int j = 0;
+		while (i < v1.length && j < v2.length) {
+			int tmp1 = Integer.parseInt(v1[i]);
+			int tmp2 = Integer.parseInt(v2[j]);
+			if (tmp1 > tmp2) {
+				return 1;
+			} else if (tmp1 == tmp2) {
+				i++;
+				j++;
+			} else {
+				return -1;
+			}
+		}
 
-	for (int i = 0; i < maxLength; i++) {
-	    int num1 = i < a1.length ? Integer.parseInt(a1[i]) : 0;
-	    int num2 = i < a2.length ? Integer.parseInt(a2[i]) : 0;
-	    if (num1 < num2) {
-		return -1;
-	    } else if (num1 > num2) {
-		return 1;
-	    }
+		while (i < v1.length) {
+			if (Integer.parseInt(v1[i]) > 0) {
+				return 1;
+			}
+			i++;
+		}
+		while (j < v2.length) {
+			if (Integer.parseInt(v2[j]) > 0) {
+				return -1;
+			}
+			j++;
+		}
+
+		return 0;
+
 	}
-
-	return 0;
-    }
 }
