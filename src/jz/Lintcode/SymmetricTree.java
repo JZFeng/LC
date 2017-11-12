@@ -40,21 +40,23 @@ public class SymmetricTree {
 	}
 
 	public static boolean isSymmetric(TreeNode root) {
-		if (root == null)
+		if (root == null) {
 			return true;
+		}
 
 		return isMirrored(root.left, root.right);
 	}
 
 	private static boolean isMirrored(TreeNode left, TreeNode right) {
-		if (left == null && right == null)
+		if (left == null && right == null){
 			return true;
-
-		if (left == null || right == null)
+		}
+		if (left == null || right == null) {
 			return false;
-
-		if (left.val != right.val)
+		}
+		if (left.val != right.val) {
 			return false;
+		}
 
 		return isMirrored(left.right, right.left) && isMirrored(left.left, right.right);
 
