@@ -1,4 +1,4 @@
-package jz.Deprecated;
+package jz.LadderOnly;
 
 //http://lintcode.com/en/problem/window-sum/
 public class WindowSum {

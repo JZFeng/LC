@@ -1,4 +1,4 @@
-package jz.Deprecated;
+package jz.LadderOnly;
 
 //http://lintcode.com/en/problem/high-five/
 import java.util.*;

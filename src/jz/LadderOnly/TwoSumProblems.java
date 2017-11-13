@@ -1,4 +1,4 @@
-package jz.Deprecated;
+package jz.LadderOnly;
 
 public class TwoSumProblems {
 //	http://lintcode.com/en/problem/two-sum/
