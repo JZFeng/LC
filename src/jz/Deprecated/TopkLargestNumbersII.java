@@ -1,4 +1,4 @@
-package jz.LadderOnly.Unresolved;
+package jz.Deprecated;
 
 import java.util.ArrayList;
 import java.util.Comparator;

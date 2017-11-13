@@ -1,4 +1,4 @@
-package jz.LadderOnly.Unresolved;
+package jz.Deprecated;
 
 import java.util.PriorityQueue;
 
