@@ -135,11 +135,7 @@ public class TwoSumProblems {
 	// http://lintcode.com/en/problem/3sum/
 	public List<List<Integer>> threeSum(int[] nums) {
 		List<List<Integer>> res = new ArrayList<>();
-		if (nums == null) {
-			return res;
-		}
-		if (nums.length < 3) {
-			res.add(new ArrayList<>());
+		if (nums == null || nums.length < 3) {
 			return res;
 		}
 
@@ -148,39 +144,34 @@ public class TwoSumProblems {
 			if (i != 0 && nums[i] == nums[i - 1]) {
 				continue;
 			}
-			int target = -nums[i];
-			helper(nums, target, i, res);
+			int left = i + 1;
+			int right = nums.length - 1;
+			while (left < right) {
+				int sum = nums[left] + nums[right];
+				int tmp = -nums[i];
+				if (sum == tmp) {
+					List<Integer> list = new ArrayList<>();
+					list.add(nums[i]);
+					list.add(nums[left]);
+					list.add(nums[right]);
+					res.add(list);
+					left++;
+					right--;
+					while (left < right && nums[left] == nums[left - 1]) {
+						left++;
+					}
+					while (left < right && nums[right + 1] == nums[right]) {
+						right--;
+					}
+				} else if (sum > tmp) {
+					right--;
+				} else {
+					left++;
+				}
+			}
 		}
 
 		return res;
-	}
-
-	// 在startIndex + 1 到nums.length - 1 找twoSum == target的Pairs,并存入到res中。
-	private void helper(int[] nums, int target, int startIndex, List<List<Integer>> res) {
-		int left = startIndex + 1;
-		int right = nums.length - 1;
-		while (left < right) {
-			int sum = nums[left] + nums[right];
-			if (sum == target) {
-				List<Integer> tmp = new ArrayList<>();
-				tmp.add(-target);
-				tmp.add(nums[left]);
-				tmp.add(nums[right]);
-				res.add(tmp);
-				left++;
-				right--;
-				while (left < right && nums[left] == nums[left - 1]) {
-					left++;
-				}
-				while (left < right && nums[right] == nums[right + 1]) {
-					right--;
-				}
-			} else if (sum > target) {
-				right--;
-			} else {
-				left++;
-			}
-		}
 	}
 
 	// http://lintcode.com/en/problem/two-sum-closest-to-target
