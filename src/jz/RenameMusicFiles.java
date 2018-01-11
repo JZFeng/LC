@@ -6,10 +6,30 @@ import java.util.Random;
 public class RenameMusicFiles {
 
 	public static void main(String[] args) {
+		if (args.length == 0) {
+			System.out.println("Please enter a valid path");
+			System.exit(0);
+		}
 
-		File f = new File("/Users/jzfeng/Downloads/music");
-		System.out.println(f.getAbsolutePath());
-		
+		for (int i = 0; i < args.length; i++) {
+			if (args[i].trim().length() > 0) {
+				String parameter = args[i].trim();
+				
+				while (parameter.endsWith("/")) {
+					parameter = parameter.substring(0, parameter.length() - 1);
+				}
+
+				File f = new File(parameter);
+				System.out.println(f.getAbsolutePath());
+				renameFilesRandomly(f);
+
+			}
+
+		}
+
+	}
+
+	private static void renameFilesRandomly(File f) {
 		if (f.exists() && f.isDirectory()) {
 			File[] allFiles = f.listFiles();
 			int numOfFiles = allFiles.length;
@@ -23,12 +43,10 @@ public class RenameMusicFiles {
 				File file = allFiles[i];
 				int index = rd.nextInt(i + 1);
 				swap(array, index, i);
-
-				file.renameTo(new File("/Users/jzfeng/Downloads/target/" + array[i] + file.getName()));
+				file.renameTo(new File(f.getAbsolutePath() + "/" + array[i] + file.getName()));
 			}
 
 		}
-
 	}
 
 	private static void swap(int[] a, int i, int j) {
