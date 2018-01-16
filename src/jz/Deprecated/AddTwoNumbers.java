@@ -17,8 +17,7 @@ import jz.LinkedList.ListNode;
 
 public class AddTwoNumbers {
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
-		// write your code here
+//JZ modified this document in the upstream
 		if (l1 == null || l2 == null) {
 			return l1 == null ? l2 : l1;
 		}
