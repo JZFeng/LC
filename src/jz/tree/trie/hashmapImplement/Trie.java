@@ -1,6 +1,6 @@
 package jz.tree.trie.hashmapImplement;
 
-import java.util.HashMap;
+import java.util.*;
 
 class TrieNode {
 	char val;
@@ -69,4 +69,69 @@ public class Trie {
 
 		return true;
 	}
+
+	public List<String> findNWordsByPrefix(String prefix, int n) {
+
+        TrieNode node = findNodeByPrefix(prefix);
+        List<String> words = getAllWords(node);
+        if(words.size() >= n) {
+            //words = words.get(0, n - 1);
+        } else {
+            int count = n - words.size();
+
+        }
+
+
+
+        return words;
+
+	}
+
+
+	public TrieNode findNodeByPrefix(String prefix) {
+		TrieNode cur = root;
+		HashMap<Character, TrieNode> children = cur.children;
+		char[] data = prefix.toLowerCase().toCharArray();
+		int i = 0;
+		for (; i < data.length; i++) {
+			char c = data[i];
+			if (!children.containsKey(c)) {
+				return null;
+			}
+			cur = children.get(c);
+			children = cur.children;
+		}
+
+		return (i == data.length) ? cur : null;
+
+	}
+
+	public List<String> getAllWords(TrieNode root) {
+	    if(root == null  || root.val == ' ') {
+            return new ArrayList<>();
+        }
+        if(root.isLeaf) {
+            List<String> res = new ArrayList<>();
+            res.add(String.valueOf(root.val));
+            return res;
+        }
+
+        List<String> allWords = new ArrayList<>();
+        TrieNode cur = root;
+        HashMap<Character, TrieNode> children = cur.children;
+        for(int i = 0 ; i < children.size(); i++) {
+            allWords.add(String.valueOf(root.val));
+        }
+        for(Map.Entry<Character, TrieNode> entry : children.entrySet()) {
+//          entry.getKey() + getAllWords(entry.getValue())
+        }
+        for(int i = 0 ; i < allWords.size(); i++) {
+//
+
+        }
+
+		return allWords;
+
+	}
+
 }
